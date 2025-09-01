@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAULISTADOCS - Serviços Automotivos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white p-2 rounded-lg shadow-sm">
+                        <img src="https://lh3.googleusercontent.com/d/1BpdZUDReyMpxzb1dIzBA9AXc04srCTpj" 
+                             alt="PAULISTADOCS Logo" 
+                             class="w-12 h-12 object-contain"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <svg class="w-10 h-10 hidden" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01M6.5 16C5.67 16 5 15.33 5 14.5S5.67 13 6.5 13 8 13.67 8 14.5 7.33 16 6.5 16M17.5 16C16.67 16 16 15.33 16 14.5S16.67 13 17.5 13 19 13.67 19 14.5 18.33 16 17.5 16M5.81 11L6.5 7H17.5L18.19 11H5.81Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">PAULISTADOCS</h1>
+                        <p class="text-blue-100">Serviços Automotivos Especializados</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="text-right">
+                        <p class="font-semibold">📞 (11) 986353603</p>
+                        <p class="text-blue-100 text-sm">Seg-Sex: 08:00-18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <section class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-6">
+            <div class="flex space-x-1 overflow-x-auto py-4">
+                <button onclick="showService('renovacao')" class="tab-button active px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Renovação CNH
+                </button>
+                <button onclick="showService('primeira-habilitacao')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Primeira Habilitação
+                </button>
+                <button onclick="showService('mudanca-categoria')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Mudança de Categoria
+                </button>
+                <button onclick="showService('segunda-via')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Segunda Via CNH
+                </button>
+                <button onclick="showService('pcd')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    CNH PCD
+                </button>
+                <button onclick="showService('consultas')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Consultas
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-6">
+            
+            <!-- Renovação CNH -->
+            <div id="renovacao" class="tab-content active">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="gradient-bg text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M18,18.5A1.5,1.5 0 0,1 16.5,20H7.5A1.5,1.5 0 0,1 6,18.5V5A1.5,1.5 0 0,1 7.5,3.5H16.5A1.5,1.5 0 0,1 18,5M16.5,2H7.5A3,3 0 0,0 4.5,5V18.5A3,3 0 0,0 7.5,21.5H16.5A3,3 0 0,0 19.5,18.5V5A3,3 0 0,0 16.5,2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Renovação de CNH</h1>
+                                    <p class="text-blue-100 text-lg">Renovação rápida e sem complicações</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos Necessários</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• CNH original (dentro do prazo)</li>
+                                        <li>• RG original</li>
+                                        <li>• CPF original</li>
+                                        <li>• Comprovante de residência atualizado</li>
+                                        <li>• Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+
+                                <div class="service-card bg-green-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores</h3>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Taxa DETRAN:</strong> R$ 130,16
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Exame Médico:</strong> R$ 150,00
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Exame Psicológico:</strong> R$ 150,00
+                                        </p>
+                                        <p class="text-lg font-semibold text-green-800">
+                                            <strong>Total:</strong> R$ 430,16
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                                <div class="flex">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h3 class="text-sm font-medium text-yellow-800">Atenção!</h3>
+                                        <p class="mt-1 text-sm text-yellow-700">
+                                            A renovação deve ser feita até 30 dias antes do vencimento. Após o vencimento, será necessário refazer os exames.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Gostaria de renovar minha CNH. Podem me ajudar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                                    💬 Solicitar Renovação via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primeira Habilitação -->
+            <div id="primeira-habilitacao" class="tab-content">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Primeira Habilitação</h1>
+                                    <p class="text-green-100 text-lg">Sua primeira CNH com total suporte</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="service-card bg-green-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-green-800 mb-4">📋 Documentos Necessários</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• RG original</li>
+                                        <li>• CPF original</li>
+                                        <li>• Comprovante de residência atualizado</li>
+                                        <li>• Comprovante de escolaridade</li>
+                                        <li>• Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+
+                                <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-4">🎯 Categorias Disponíveis</h3>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">Categoria A (Moto)</span>
+                                            <span class="font-semibold text-blue-800">R$ 1.200,00</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">Categoria B (Carro)</span>
+                                            <span class="font-semibold text-blue-800">R$ 1.500,00</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">Categoria AB</span>
+                                            <span class="font-semibold text-blue-800">R$ 2.200,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-blue-800 mb-3">📚 Processo Completo Inclui:</h3>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                                    <ul class="space-y-2">
+                                        <li>• Exames médico e psicológico</li>
+                                        <li>• Curso teórico completo</li>
+                                        <li>• Material didático</li>
+                                    </ul>
+                                    <ul class="space-y-2">
+                                        <li>• Aulas práticas de direção</li>
+                                        <li>• Taxas do DETRAN</li>
+                                        <li>• Acompanhamento até a aprovação</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Quero tirar minha primeira CNH. Podem me orientar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                                    🚗 Começar Primeira Habilitação
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mudança de Categoria -->
+            <div id="mudanca-categoria" class="tab-content">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Mudança de Categoria</h1>
+                                    <p class="text-purple-100 text-lg">Amplie suas possibilidades de direção</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="service-card bg-purple-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-purple-800 mb-4">📋 Documentos Necessários</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• CNH original (categoria atual)</li>
+                                        <li>• RG original</li>
+                                        <li>• CPF original</li>
+                                        <li>• Comprovante de residência atualizado</li>
+                                        <li>• Foto 3x4 recente</li>
+                                    </ul>
+                                </div>
+
+                                <div class="service-card bg-orange-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-orange-800 mb-4">🔄 Mudanças Disponíveis</h3>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">A para AB</span>
+                                            <span class="font-semibold text-orange-800">R$ 800,00</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">B para AB</span>
+                                            <span class="font-semibold text-orange-800">R$ 600,00</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">AB para C</span>
+                                            <span class="font-semibold text-orange-800">R$ 1.200,00</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-700">C para D</span>
+                                            <span class="font-semibold text-orange-800">R$ 1.500,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-yellow-800 mb-3">⚠️ Requisitos Importantes:</h3>
+                                <ul class="space-y-2 text-sm text-gray-700">
+                                    <li>• CNH deve estar dentro da validade</li>
+                                    <li>• Não possuir infrações graves nos últimos 12 meses</li>
+                                    <li>• Idade mínima conforme categoria desejada</li>
+                                    <li>• Aprovação em exames médico e psicológico</li>
+                                </ul>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Quero fazer mudança de categoria na minha CNH. Podem me ajudar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-purple-600 transition duration-300 shadow-lg">
+                                    🔄 Solicitar Mudança de Categoria
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda Via CNH -->
+            <div id="segunda-via" class="tab-content">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-red-600 to-red-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C2.89,3 2,3.89 19,3M19,5V19H5V5H19Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Segunda Via CNH</h1>
+                                    <p class="text-red-100 text-lg">Reposição rápida da sua carteira</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="service-card bg-red-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-red-800 mb-4">📋 Documentos Necessários</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• RG original</li>
+                                        <li>• CPF original</li>
+                                        <li>• Comprovante de residência atualizado</li>
+                                        <li>• Foto 3x4 recente</li>
+                                        <li>• Boletim de Ocorrência (se roubada/furtada)</li>
+                                    </ul>
+                                </div>
+
+                                <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores</h3>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Taxa DETRAN:</strong> R$ 130,16
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Taxa de Serviço:</strong> R$ 50,00
+                                        </p>
+                                        <p class="text-lg font-semibold text-blue-800">
+                                            <strong>Total:</strong> R$ 180,16
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                                <div class="bg-green-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🔄</div>
+                                    <h4 class="font-semibold text-green-800">Renovação</h4>
+                                    <p class="text-sm text-gray-600">CNH vencida ou próxima ao vencimento</p>
+                                </div>
+                                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">🚫</div>
+                                    <h4 class="font-semibold text-yellow-800">Perda/Roubo</h4>
+                                    <p class="text-sm text-gray-600">Carteira perdida, roubada ou furtada</p>
+                                </div>
+                                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                                    <div class="text-2xl mb-2">💔</div>
+                                    <h4 class="font-semibold text-blue-800">Danificada</h4>
+                                    <p class="text-sm text-gray-600">CNH danificada ou ilegível</p>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso da segunda via da minha CNH. Podem me ajudar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
+                                    📄 Solicitar Segunda Via
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CNH PCD -->
+            <div id="pcd" class="tab-content">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-teal-600 to-teal-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">CNH PCD</h1>
+                                    <p class="text-teal-100 text-lg">Habilitação especial para pessoas com deficiência</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="service-card bg-teal-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-teal-800 mb-4">📋 Documentos Necessários</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• RG original</li>
+                                        <li>• CPF original</li>
+                                        <li>• Comprovante de residência atualizado</li>
+                                        <li>• Laudo médico especializado</li>
+                                        <li>• Foto 3x4 recente</li>
+                                        <li>• Comprovante de deficiência</li>
+                                    </ul>
+                                </div>
+
+                                <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-4">♿ Tipos de Deficiência</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• Deficiência física</li>
+                                        <li>• Deficiência auditiva</li>
+                                        <li>• Deficiência mental</li>
+                                        <li>• Deficiência visual (baixa visão)</li>
+                                        <li>• Deficiência múltipla</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-green-800 mb-3">✅ Benefícios PCD:</h3>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                                    <ul class="space-y-2">
+                                        <li>• Isenção de IPI na compra do veículo</li>
+                                        <li>• Isenção de ICMS</li>
+                                        <li>• Isenção de IOF</li>
+                                    </ul>
+                                    <ul class="space-y-2">
+                                        <li>• Isenção de IPVA</li>
+                                        <li>• Desconto no seguro</li>
+                                        <li>• Financiamento facilitado</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-yellow-800 mb-3">📝 Processo Especial:</h3>
+                                <p class="text-sm text-gray-700">
+                                    O processo para CNH PCD inclui avaliação médica especializada, adaptações no veículo de ensino quando necessário, 
+                                    e acompanhamento personalizado durante todo o processo de habilitação.
+                                </p>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso de informações sobre CNH PCD. Podem me orientar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-teal-600 to-teal-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-teal-700 hover:to-teal-600 transition duration-300 shadow-lg">
+                                    ♿ Solicitar CNH PCD
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consultas -->
+            <div id="consultas" class="tab-content">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C2.89,4 2,4.89 20,4Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Consultas PAULISTADOCS</h1>
+                                    <p class="text-green-100 text-lg">Consulte débitos, multas e situação do seu veículo</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <div class="text-center mb-8">
+                                <a href="https://forms.gle/S5iPwKSZxjTAPQt19" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                                    📋 Preencher Formulário de Consulta
+                                </a>
+                                <p class="mt-4 text-gray-600">
+                                    Clique no botão acima para acessar nosso formulário de consultas
+                                </p>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                                <div class="bg-green-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-green-800 mb-4">📞 Contato WhatsApp</h3>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Número:</strong> (11) 986353603
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Horário:</strong> Das 08:00 às 18:00
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="bg-blue-50 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-4">🔍 Tipos de Consulta</h3>
+                                    <ul class="space-y-2 text-gray-700 text-sm">
+                                        <li>• Débitos para Licenciamento</li>
+                                        <li>• Transferência de Proprietário</li>
+                                        <li>• Multas Renainf</li>
+                                        <li>• Bloqueio DETRAN-SP</li>
+                                        <li>• Bloqueio Renajud</li>
+                                        <li>• Base Estadual</li>
+                                        <li>• Consultar Base de Outros Estados</li>
+                                        <li>• Consultar Cadastro BIN / RENAVAM</li>
+                                        <li>• Consultar Número de Motor na BIN</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/5511986353603" target="_blank" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        function showService(serviceId) {
+            // Esconder todas as abas
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Mostrar a aba selecionada
+            document.getElementById(serviceId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97825525563301a0',t:'MTc1NjcwNDE3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
