@@ -58,16 +58,27 @@
             100% { transform: scale(1); }
         }
 
-        .highlight-card {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        .premium-card {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             color: white;
-            border: 3px solid #ff9ff3;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.2);
         }
 
-        .highlight-card:hover {
+        .premium-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 40px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 30px 50px rgba(79, 70, 229, 0.3);
+        }
+
+        .premium-badge {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            color: #92400e;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -155,40 +166,41 @@
                         <div class="p-8">
                             <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">O que você precisa?</h2>
                             
-                            <!-- SERVIÇO EM DESTAQUE: Liberação de Veículos Apreendidos -->
+                            <!-- SERVIÇO EM DESTAQUE: Liberação de Veículos Apreendidos - VERSÃO PROFISSIONAL -->
                             <div class="mb-8">
-                                <div class="highlight-card service-card p-8 rounded-xl text-center">
+                                <div class="premium-card service-card p-8 rounded-xl text-center">
+                                    <div class="premium-badge">SERVIÇO ESPECIALIZADO</div>
                                     <div class="bg-white/20 p-4 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
                                         <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                                            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01M6.5 16C5.67 16 5 15.33 5 14.5S5.67 13 6.5 13 8 13.67 8 14.5 7.33 16 6.5 16M17.5 16C16.67 16 16 15.33 16 14.5S16.67 13 17.5 13 19 13.67 19 14.5 18.33 16 17.5 16M5.81 11L6.5 7H17.5L18.19 11H5.81Z"/>
                                         </svg>
                                     </div>
-                                    <h3 class="text-2xl font-bold mb-4">🚨 LIBERAÇÃO DE VEÍCULOS APREENDIDOS</h3>
-                                    <p class="text-lg mb-6 text-white/90">Seu veículo foi apreendido? Cuidamos de toda a burocracia para liberação rápida e sem complicações!</p>
+                                    <h3 class="text-2xl font-bold mb-4">LIBERAÇÃO DE VEÍCULOS APREENDIDOS</h3>
+                                    <p class="text-lg mb-6 text-white/90">Seu veículo foi apreendido? Somos especialistas em liberação rápida e desburocratizada.</p>
                                     <div class="grid md:grid-cols-2 gap-4 mb-6 text-sm">
                                         <div class="bg-white/10 p-4 rounded-lg">
-                                            <p class="font-semibold mb-2">✅ Serviços Inclusos:</p>
+                                            <p class="font-semibold mb-2">✅ Nossos Serviços:</p>
                                             <ul class="text-left space-y-1">
-                                                <li>• Análise do processo</li>
-                                                <li>• Pagamento de multas</li>
-                                                <li>• Documentação completa</li>
+                                                <li>• Análise completa do processo</li>
+                                                <li>• Quitação de multas e taxas</li>
+                                                <li>• Documentação especializada</li>
                                                 <li>• Acompanhamento no pátio</li>
                                             </ul>
                                         </div>
                                         <div class="bg-white/10 p-4 rounded-lg">
-                                            <p class="font-semibold mb-2">⚡ Vantagens:</p>
+                                            <p class="font-semibold mb-2">⭐ Diferenciais:</p>
                                             <ul class="text-left space-y-1">
                                                 <li>• Liberação em 24-48h</li>
-                                                <li>• Sem filas ou burocracias</li>
-                                                <li>• Especialistas experientes</li>
-                                                <li>• Preço justo e transparente</li>
+                                                <li>• Equipe especializada</li>
+                                                <li>• Atendimento personalizado</li>
+                                                <li>• Transparência total</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="https://wa.me/5511986353603?text=🚨 URGENTE! Meu veículo foi apreendido e preciso de ajuda para liberação. Podem me atender?" 
+                                    <a href="https://wa.me/5511986353603?text=Olá! Meu veículo foi apreendido e preciso de ajuda especializada para liberação. Podem me atender?" 
                                        target="_blank" 
-                                       class="inline-block bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg">
-                                        🚨 LIBERAR VEÍCULO AGORA
+                                       class="inline-block bg-white text-indigo-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg">
+                                        🚗 SOLICITAR LIBERAÇÃO
                                     </a>
                                 </div>
                             </div>
@@ -303,8 +315,8 @@
                             </div>
 
                             <!-- Seção de Informações Importantes -->
-                            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
-                                <h3 class="text-lg font-semibold text-red-800 mb-3">📋 Documentos Geralmente Necessários:</h3>
+                            <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-blue-800 mb-3">📋 Documentos Geralmente Necessários:</h3>
                                 <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
                                     <ul class="space-y-2">
                                         <li>• Documento do veículo (CRLV)</li>
