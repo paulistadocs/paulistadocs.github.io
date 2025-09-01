@@ -57,6 +57,18 @@
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            border: 3px solid #ff9ff3;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(255, 107, 107, 0.4);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -93,7 +105,10 @@
     <section class="bg-white shadow-sm border-b">
         <div class="container mx-auto px-6">
             <div class="flex space-x-1 overflow-x-auto py-4">
-                <button onclick="showService('renovacao')" class="tab-button active px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                <button onclick="showService('veiculos')" class="tab-button active px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
+                    Serviços de Veículos
+                </button>
+                <button onclick="showService('renovacao')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
                     Renovação CNH
                 </button>
                 <button onclick="showService('primeira-habilitacao')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
@@ -111,9 +126,6 @@
                 <button onclick="showService('consultas')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
                     Consultas
                 </button>
-                <button onclick="showService('veiculos')" class="tab-button px-6 py-3 rounded-lg font-medium whitespace-nowrap bg-gray-100 text-gray-700">
-                    Serviços de Veículos
-                </button>
             </div>
         </div>
     </section>
@@ -121,9 +133,206 @@
     <!-- Service Content -->
     <main class="py-8">
         <div class="container mx-auto px-6">
+
+            <!-- Serviços de Veículos (PRIMEIRA ABA - PADRÃO) -->
+            <div id="veiculos" class="tab-content active">
+                <div class="max-w-6xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-red-600 to-red-500 text-white p-8">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-white/20 p-3 rounded-lg">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01M6.5 16C5.67 16 5 15.33 5 14.5S5.67 13 6.5 13 8 13.67 8 14.5 7.33 16 6.5 16M17.5 16C16.67 16 16 15.33 16 14.5S16.67 13 17.5 13 19 13.67 19 14.5 18.33 16 17.5 16M5.81 11L6.5 7H17.5L18.19 11H5.81Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h1 class="text-3xl font-bold">Serviços para seu Veículo</h1>
+                                    <p class="text-red-100 text-lg">Regularize seu veículo de forma rápida e segura</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-8">
+                            <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">O que você precisa?</h2>
+                            
+                            <!-- SERVIÇO EM DESTAQUE: Liberação de Veículos Apreendidos -->
+                            <div class="mb-8">
+                                <div class="highlight-card service-card p-8 rounded-xl text-center">
+                                    <div class="bg-white/20 p-4 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
+                                        <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-4">🚨 LIBERAÇÃO DE VEÍCULOS APREENDIDOS</h3>
+                                    <p class="text-lg mb-6 text-white/90">Seu veículo foi apreendido? Cuidamos de toda a burocracia para liberação rápida e sem complicações!</p>
+                                    <div class="grid md:grid-cols-2 gap-4 mb-6 text-sm">
+                                        <div class="bg-white/10 p-4 rounded-lg">
+                                            <p class="font-semibold mb-2">✅ Serviços Inclusos:</p>
+                                            <ul class="text-left space-y-1">
+                                                <li>• Análise do processo</li>
+                                                <li>• Pagamento de multas</li>
+                                                <li>• Documentação completa</li>
+                                                <li>• Acompanhamento no pátio</li>
+                                            </ul>
+                                        </div>
+                                        <div class="bg-white/10 p-4 rounded-lg">
+                                            <p class="font-semibold mb-2">⚡ Vantagens:</p>
+                                            <ul class="text-left space-y-1">
+                                                <li>• Liberação em 24-48h</li>
+                                                <li>• Sem filas ou burocracias</li>
+                                                <li>• Especialistas experientes</li>
+                                                <li>• Preço justo e transparente</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <a href="https://wa.me/5511986353603?text=🚨 URGENTE! Meu veículo foi apreendido e preciso de ajuda para liberação. Podem me atender?" 
+                                       target="_blank" 
+                                       class="inline-block bg-white text-red-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition duration-300 shadow-lg">
+                                        🚨 LIBERAR VEÍCULO AGORA
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Grid de Outros Serviços Veiculares -->
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
+                                <!-- Card: Licenciamento -->
+                                <div class="service-card bg-blue-50 p-6 rounded-lg text-center border border-blue-200">
+                                    <div class="bg-blue-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Licenciamento Anual</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Emita o CRLV-e do seu veículo sem sair de casa. Rápido e 100% digital.</p>
+                                    <p class="font-semibold text-blue-600 mb-4">A partir de R$ 150,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Gostaria de fazer o Licenciamento do meu veículo." target="_blank" class="font-semibold text-blue-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Transferência de Propriedade -->
+                                <div class="service-card bg-green-50 p-6 rounded-lg text-center border border-green-200">
+                                    <div class="bg-green-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-green-800 mb-2">Transferência de Veículo</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Comprando ou vendendo? Cuidamos de toda a burocracia da transferência para você.</p>
+                                    <p class="font-semibold text-green-600 mb-4">A partir de R$ 300,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com a transferência de um veículo." target="_blank" class="font-semibold text-green-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Primeiro Emplacamento -->
+                                <div class="service-card bg-purple-50 p-6 rounded-lg text-center border border-purple-200">
+                                    <div class="bg-purple-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-purple-800 mb-2">Primeiro Emplacamento</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Tirou seu carro 0km? Realizamos todo o processo de registro e emplacamento.</p>
+                                    <p class="font-semibold text-purple-600 mb-4">A partir de R$ 400,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer o primeiro emplacamento do meu carro." target="_blank" class="font-semibold text-purple-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Segunda Via do CRV -->
+                                <div class="service-card bg-yellow-50 p-6 rounded-lg text-center border border-yellow-200">
+                                    <div class="bg-yellow-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-yellow-800 mb-2">Segunda Via do CRV</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Perdeu o documento do veículo? Emitimos a segunda via rapidamente.</p>
+                                    <p class="font-semibold text-yellow-600 mb-4">A partir de R$ 180,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso da segunda via do CRV do meu veículo." target="_blank" class="font-semibold text-yellow-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Emissão de ATPV-e -->
+                                <div class="service-card bg-cyan-50 p-6 rounded-lg text-center border border-cyan-200">
+                                    <div class="bg-cyan-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-cyan-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-cyan-800 mb-2">Emissão de ATPV-e</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Autorização para Transferência de Propriedade de Veículo eletrônica.</p>
+                                    <p class="font-semibold text-cyan-600 mb-4">A partir de R$ 120,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso emitir o ATPV-e do meu veículo." target="_blank" class="font-semibold text-cyan-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Baixa de Gravame -->
+                                <div class="service-card bg-orange-50 p-6 rounded-lg text-center border border-orange-200">
+                                    <div class="bg-orange-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-orange-800 mb-2">Baixa de Gravame</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Quitou o financiamento? Damos baixa no gravame para liberar o documento do seu veículo.</p>
+                                    <p class="font-semibold text-orange-600 mb-4">A partir de R$ 200,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Quero dar baixa no gravame do meu veículo." target="_blank" class="font-semibold text-orange-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+                                
+                                <!-- Card: Regularização de Motor -->
+                                <div class="service-card bg-teal-50 p-6 rounded-lg text-center border border-teal-200">
+                                    <div class="bg-teal-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-teal-800 mb-2">Regularização de Motor</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Trocou o motor do carro? Fazemos a regularização completa junto ao DETRAN.</p>
+                                    <p class="font-semibold text-teal-600 mb-4">A partir de R$ 350,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso regularizar o motor do meu veículo." target="_blank" class="font-semibold text-teal-600 hover:underline">Solicitar Agora →</a>
+                                </div>
+
+                                <!-- Card: Consultas e Débitos -->
+                                <div class="service-card bg-indigo-50 p-6 rounded-lg text-center border border-indigo-200">
+                                    <div class="bg-indigo-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-semibold text-indigo-800 mb-2">Consultas e Débitos</h3>
+                                    <p class="text-gray-600 text-sm mb-4">Verifique multas, IPVA, e outros débitos. Oferecemos consultas completas.</p>
+                                    <p class="font-semibold text-indigo-600 mb-4">A partir de R$ 25,00</p>
+                                    <a href="https://wa.me/5511986353603?text=Olá! Gostaria de fazer uma consulta de débitos do meu veículo." target="_blank" class="font-semibold text-indigo-600 hover:underline">Consultar Agora →</a>
+                                </div>
+
+                            </div>
+
+                            <!-- Seção de Informações Importantes -->
+                            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+                                <h3 class="text-lg font-semibold text-red-800 mb-3">📋 Documentos Geralmente Necessários:</h3>
+                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                                    <ul class="space-y-2">
+                                        <li>• Documento do veículo (CRLV)</li>
+                                        <li>• RG e CPF do proprietário</li>
+                                        <li>• Comprovante de residência</li>
+                                    </ul>
+                                    <ul class="space-y-2">
+                                        <li>• Nota fiscal (quando aplicável)</li>
+                                        <li>• Comprovante de quitação</li>
+                                        <li>• Procuração (se necessário)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com serviços para meu veículo. Podem me orientar?" 
+                                   target="_blank" 
+                                   class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
+                                    🚗 Falar com Especialista
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Renovação CNH -->
-            <div id="renovacao" class="tab-content active">
+            <div id="renovacao" class="tab-content">
                 <div class="max-w-6xl mx-auto">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
                         <div class="gradient-bg text-white p-8">
@@ -562,139 +771,6 @@
                                    target="_blank" 
                                    class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-indigo-700 hover:to-indigo-600 transition duration-300 shadow-lg">
                                     🔍 Fazer Consulta
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Serviços de Veículos -->
-            <div id="veiculos" class="tab-content">
-                <div class="max-w-6xl mx-auto">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                        <div class="bg-gradient-to-r from-red-600 to-red-500 text-white p-8">
-                            <div class="flex items-center space-x-4">
-                                <div class="bg-white/20 p-3 rounded-lg">
-                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5H6.5C5.84 5 5.28 5.42 5.08 6.01L3 12V20C3 20.55 3.45 21 4 21H5C5.55 21 6 20.55 6 20V19H18V20C18 20.55 18.45 21 19 21H20C20.55 21 21 20.55 21 20V12L18.92 6.01M6.5 16C5.67 16 5 15.33 5 14.5S5.67 13 6.5 13 8 13.67 8 14.5 7.33 16 6.5 16M17.5 16C16.67 16 16 15.33 16 14.5S16.67 13 17.5 13 19 13.67 19 14.5 18.33 16 17.5 16M5.81 11L6.5 7H17.5L18.19 11H5.81Z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h1 class="text-3xl font-bold">Serviços para seu Veículo</h1>
-                                    <p class="text-red-100 text-lg">Regularize seu veículo de forma rápida e segura</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-8">
-                            <h2 class="text-2xl font-bold text-gray-800 text-center mb-8">O que você precisa?</h2>
-                            
-                            <!-- Grid de Serviços Veiculares -->
-                            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-
-                                <!-- Card: Licenciamento -->
-                                <div class="service-card bg-blue-50 p-6 rounded-lg text-center border border-blue-200">
-                                    <div class="bg-blue-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-blue-800 mb-2">Licenciamento Anual</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Emita o CRLV-e do seu veículo sem sair de casa. Rápido e 100% digital.</p>
-                                    <p class="font-semibold text-blue-600 mb-4">A partir de R$ 150,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Gostaria de fazer o Licenciamento do meu veículo." target="_blank" class="font-semibold text-blue-600 hover:underline">Solicitar Agora →</a>
-                                </div>
-
-                                <!-- Card: Transferência de Propriedade -->
-                                <div class="service-card bg-green-50 p-6 rounded-lg text-center border border-green-200">
-                                    <div class="bg-green-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-green-800 mb-2">Transferência de Veículo</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Comprando ou vendendo? Cuidamos de toda a burocracia da transferência para você.</p>
-                                    <p class="font-semibold text-green-600 mb-4">A partir de R$ 300,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com a transferência de um veículo." target="_blank" class="font-semibold text-green-600 hover:underline">Solicitar Agora →</a>
-                                </div>
-
-                                <!-- Card: Primeiro Emplacamento -->
-                                <div class="service-card bg-purple-50 p-6 rounded-lg text-center border border-purple-200">
-                                    <div class="bg-purple-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-purple-800 mb-2">Primeiro Emplacamento</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Tirou seu carro 0km? Realizamos todo o processo de registro e emplacamento.</p>
-                                    <p class="font-semibold text-purple-600 mb-4">A partir de R$ 400,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer o primeiro emplacamento do meu carro." target="_blank" class="font-semibold text-purple-600 hover:underline">Solicitar Agora →</a>
-                                </div>
-
-                                <!-- Card: Baixa de Gravame -->
-                                <div class="service-card bg-orange-50 p-6 rounded-lg text-center border border-orange-200">
-                                    <div class="bg-orange-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-orange-800 mb-2">Baixa de Gravame</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Quitou o financiamento? Damos baixa no gravame para liberar o documento do seu veículo.</p>
-                                    <p class="font-semibold text-orange-600 mb-4">A partir de R$ 200,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Quero dar baixa no gravame do meu veículo." target="_blank" class="font-semibold text-orange-600 hover:underline">Solicitar Agora →</a>
-                                </div>
-                                
-                                <!-- Card: Regularização de Motor -->
-                                <div class="service-card bg-teal-50 p-6 rounded-lg text-center border border-teal-200">
-                                    <div class="bg-teal-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.22,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.22,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.68 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-teal-800 mb-2">Regularização de Motor</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Trocou o motor do carro? Fazemos a regularização completa junto ao DETRAN.</p>
-                                    <p class="font-semibold text-teal-600 mb-4">A partir de R$ 350,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Preciso regularizar o motor do meu veículo." target="_blank" class="font-semibold text-teal-600 hover:underline">Solicitar Agora →</a>
-                                </div>
-
-                                <!-- Card: Consultas e Débitos -->
-                                <div class="service-card bg-indigo-50 p-6 rounded-lg text-center border border-indigo-200">
-                                    <div class="bg-indigo-100 p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                                        <svg class="w-8 h-8 text-indigo-600" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-semibold text-indigo-800 mb-2">Consultas e Débitos</h3>
-                                    <p class="text-gray-600 text-sm mb-4">Verifique multas, IPVA, e outros débitos. Oferecemos consultas completas.</p>
-                                    <p class="font-semibold text-indigo-600 mb-4">A partir de R$ 25,00</p>
-                                    <a href="https://wa.me/5511986353603?text=Olá! Gostaria de fazer uma consulta de débitos do meu veículo." target="_blank" class="font-semibold text-indigo-600 hover:underline">Consultar Agora →</a>
-                                </div>
-
-                            </div>
-
-                            <!-- Seção de Informações Importantes -->
-                            <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
-                                <h3 class="text-lg font-semibold text-red-800 mb-3">📋 Documentos Geralmente Necessários:</h3>
-                                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                    <ul class="space-y-2">
-                                        <li>• Documento do veículo (CRLV)</li>
-                                        <li>• RG e CPF do proprietário</li>
-                                        <li>• Comprovante de residência</li>
-                                    </ul>
-                                    <ul class="space-y-2">
-                                        <li>• Nota fiscal (quando aplicável)</li>
-                                        <li>• Comprovante de quitação</li>
-                                        <li>• Procuração (se necessário)</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="text-center">
-                                <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com serviços para meu veículo. Podem me orientar?" 
-                                   target="_blank" 
-                                   class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
-                                    🚗 Falar com Especialista
                                 </a>
                             </div>
                         </div>
