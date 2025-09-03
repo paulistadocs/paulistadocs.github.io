@@ -64,7 +64,6 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
@@ -86,7 +85,6 @@
                     </div>
                 </div>
                 
-                <!-- Navigation Menu -->
                 <nav class="hidden md:flex space-x-8">
                     <button onclick="showMenu('home')" class="menu-button text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                         🏠 Home
@@ -128,7 +126,6 @@
                     </button>
                 </nav>
                 
-                <!-- Mobile Menu Button -->
                 <button class="md:hidden" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -138,55 +135,10 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="min-h-screen py-8">
-        <!-- Home -->
         <div id="home" class="menu-content active">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Hero Section -->
-                <div class="relative bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 rounded-3xl overflow-hidden mb-12 shadow-2xl">
-                    <!-- Background Pattern -->
-                    <div class="absolute inset-0 opacity-10">
-                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
-                            <defs>
-                                <pattern id="office-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <rect x="0" y="0" width="20" height="20" fill="none" stroke="white" stroke-width="0.5"/>
-                                    <rect x="2" y="2" width="16" height="16" fill="none" stroke="white" stroke-width="0.3"/>
-                                    <circle cx="10" cy="10" r="1" fill="white"/>
-                                </pattern>
-                            </defs>
-                            <rect width="100%" height="100%" fill="url(#office-pattern)"/>
-                        </svg>
-                    </div>
-                    
-                    <!-- Modern Office Illustration -->
-                    <div class="absolute right-0 top-0 w-1/2 h-full opacity-20">
-                        <svg viewBox="0 0 400 300" class="w-full h-full">
-                            <!-- Building silhouettes -->
-                            <rect x="300" y="50" width="40" height="200" fill="white" opacity="0.3"/>
-                            <rect x="350" y="30" width="35" height="220" fill="white" opacity="0.4"/>
-                            <rect x="250" y="80" width="45" height="170" fill="white" opacity="0.2"/>
-                            
-                            <!-- Office windows -->
-                            <rect x="305" y="60" width="6" height="8" fill="white" opacity="0.6"/>
-                            <rect x="315" y="60" width="6" height="8" fill="white" opacity="0.6"/>
-                            <rect x="325" y="60" width="6" height="8" fill="white" opacity="0.6"/>
-                            <rect x="305" y="80" width="6" height="8" fill="white" opacity="0.6"/>
-                            <rect x="315" y="80" width="6" height="8" fill="white" opacity="0.6"/>
-                            <rect x="325" y="80" width="6" height="8" fill="white" opacity="0.6"/>
-                            
-                            <!-- People silhouettes -->
-                            <ellipse cx="100" cy="200" rx="8" ry="12" fill="white" opacity="0.3"/>
-                            <ellipse cx="150" cy="190" rx="6" ry="10" fill="white" opacity="0.2"/>
-                            <ellipse cx="200" cy="210" rx="7" ry="11" fill="white" opacity="0.25"/>
-                            
-                            <!-- Documents floating -->
-                            <rect x="80" y="120" width="15" height="20" fill="white" opacity="0.4" rx="2"/>
-                            <rect x="180" y="100" width="12" height="16" fill="white" opacity="0.3" rx="1"/>
-                            <rect x="220" y="140" width="18" height="24" fill="white" opacity="0.5" rx="2"/>
-                        </svg>
-                    </div>
-                    
+                <div class="relative rounded-3xl overflow-hidden mb-12 shadow-2xl" style="background-image: url('banner.png'); background-size: cover; background-position: center;">
                     <div class="relative text-center py-16 px-8 text-white">
                         <h1 class="text-4xl md:text-6xl font-bold mb-6">
                             Seus documentos <span class="text-yellow-300">em ordem</span>
@@ -203,7 +155,6 @@
                     </div>
                 </div>
 
-                <!-- Services Overview -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg text-center border border-blue-200 hover:border-blue-300" onclick="showMenu('renovacao')">
                         <div class="bg-gradient-to-br from-blue-600 to-blue-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
@@ -238,26 +189,10 @@
                     </div>
                 </div>
 
-                <!-- Downloads Section -->
                 <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-2xl p-8 mb-8 overflow-hidden">
-                    <!-- Background Office Pattern -->
-                    <div class="absolute inset-0 opacity-5">
-                        <svg class="w-full h-full" viewBox="0 0 200 200">
-                            <!-- Filing cabinets -->
-                            <rect x="20" y="150" width="30" height="40" fill="currentColor"/>
-                            <rect x="60" y="140" width="25" height="50" fill="currentColor"/>
-                            <rect x="100" y="160" width="35" height="30" fill="currentColor"/>
-                            <!-- Documents -->
-                            <rect x="140" y="120" width="15" height="20" fill="currentColor" rx="2"/>
-                            <rect x="160" y="110" width="12" height="25" fill="currentColor" rx="1"/>
-                            <rect x="180" y="130" width="18" height="22" fill="currentColor" rx="2"/>
-                        </svg>
-                    </div>
-                    
                     <div class="relative">
                         <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent mb-8 text-center">📥 Central de Downloads</h2>
                         
-                        <!-- Formulários Gerais -->
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                 <span class="bg-blue-100 p-2 rounded-lg mr-3">📋</span>
@@ -267,7 +202,7 @@
                                 <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center border border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">📄</div>
                                     <h4 class="font-bold text-blue-800 mb-3">Formulário Renovação CNH</h4>
-                                    <a href="./documentos/Formulário Renovação CNH.pdf" download="Formulário Renovação CNH.pdf" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl text-sm hover:from-blue-700 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Formulário Renovação CNH.pdf" download="Formulário Renovação CNH.pdf" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl text-sm hover:from-blue-700 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -275,7 +210,7 @@
                                 <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center border border-green-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">📋</div>
                                     <h4 class="font-bold text-green-800 mb-3">Checklist Documentos</h4>
-                                    <a href="./documentos/Checklist Documentos.pdf" download="Checklist Documentos.pdf" class="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl text-sm hover:from-green-700 hover:to-green-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Checklist Documentos.pdf" download="Checklist Documentos.pdf" class="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl text-sm hover:from-green-700 hover:to-green-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -283,7 +218,7 @@
                                 <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl text-center border border-orange-200 hover:border-orange-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">♿</div>
                                     <h4 class="font-bold text-orange-800 mb-3">Formulário CNH PCD</h4>
-                                    <a href="./documentos/Formulário CNH PCD.pdf" download="Formulário CNH PCD.pdf" class="inline-block bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-3 rounded-xl text-sm hover:from-orange-700 hover:to-orange-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Formulário CNH PCD.pdf" download="Formulário CNH PCD.pdf" class="inline-block bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-3 rounded-xl text-sm hover:from-orange-700 hover:to-orange-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -291,7 +226,7 @@
                                 <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl text-center border border-red-200 hover:border-red-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">🔍</div>
                                     <h4 class="font-bold text-red-800 mb-3">Guia de Consultas</h4>
-                                    <a href="./documentos/Guia de Consultas.pdf" download="Guia de Consultas.pdf" class="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl text-sm hover:from-red-700 hover:to-red-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Guia de Consultas.pdf" download="Guia de Consultas.pdf" class="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl text-sm hover:from-red-700 hover:to-red-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -299,14 +234,13 @@
                                 <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl text-center border border-teal-200 hover:border-teal-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">💰</div>
                                     <h4 class="font-bold text-teal-800 mb-3">Tabela de Preços</h4>
-                                    <a href="./documentos/Tabela de Preços.pdf" download="Tabela de Preços.pdf" class="inline-block bg-gradient-to-r from-teal-600 to-teal-700 text-white px-6 py-3 rounded-xl text-sm hover:from-teal-700 hover:to-teal-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Tabela de Preços.pdf" download="Tabela de Preços.pdf" class="inline-block bg-gradient-to-r from-teal-600 to-teal-700 text-white px-6 py-3 rounded-xl text-sm hover:from-teal-700 hover:to-teal-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Requerimentos e Declarações -->
                         <div>
                             <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                                 <span class="bg-purple-100 p-2 rounded-lg mr-3">📝</span>
@@ -324,7 +258,7 @@
                                 <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl text-center border border-indigo-200 hover:border-indigo-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">✅</div>
                                     <h4 class="font-bold text-indigo-800 mb-3">Carta de Anuência</h4>
-                                    <a href="./documentos/C_Anuencia.pdf" download="C_Anuencia.pdf" class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-xl text-sm hover:from-indigo-700 hover:to-indigo-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./C_Anuencia.pdf" download="C_Anuencia.pdf" class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-xl text-sm hover:from-indigo-700 hover:to-indigo-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -332,7 +266,7 @@
                                 <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl text-center border border-yellow-200 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">⚠️</div>
                                     <h4 class="font-bold text-yellow-800 mb-3">Declaração de Perda</h4>
-                                    <a href="./documentos/Declaração de Perda.pdf" download="Declaração de Perda.pdf" class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-xl text-sm hover:from-yellow-700 hover:to-yellow-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Declaração de Perda.pdf" download="Declaração de Perda.pdf" class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-xl text-sm hover:from-yellow-700 hover:to-yellow-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -340,7 +274,7 @@
                                 <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl text-center border border-pink-200 hover:border-pink-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">🔧</div>
                                     <h4 class="font-bold text-pink-800 mb-3">Requerimento Motor</h4>
-                                    <a href="./documentos/R_Motor.pdf" download="R_Motor.pdf" class="inline-block bg-gradient-to-r from-pink-600 to-pink-700 text-white px-6 py-3 rounded-xl text-sm hover:from-pink-700 hover:to-pink-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./R_Motor.pdf" download="R_Motor.pdf" class="inline-block bg-gradient-to-r from-pink-600 to-pink-700 text-white px-6 py-3 rounded-xl text-sm hover:from-pink-700 hover:to-pink-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -348,7 +282,7 @@
                                 <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-xl text-center border border-cyan-200 hover:border-cyan-300 transition-all duration-300 hover:shadow-lg">
                                     <div class="text-4xl mb-3">🔄</div>
                                     <h4 class="font-bold text-cyan-800 mb-3">Req. Transformação</h4>
-                                    <a href="./documentos/Req_Transformacao.pdf" download="Req_Transformacao.pdf" class="inline-block bg-gradient-to-r from-cyan-600 to-cyan-700 text-white px-6 py-3 rounded-xl text-sm hover:from-cyan-700 hover:to-cyan-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <a href="./Req_Transformacao.pdf" download="Req_Transformacao.pdf" class="inline-block bg-gradient-to-r from-cyan-600 to-cyan-700 text-white px-6 py-3 rounded-xl text-sm hover:from-cyan-700 hover:to-cyan-800 transition duration-300 shadow-lg transform hover:scale-105">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -359,7 +293,6 @@
             </div>
         </div>
 
-        <!-- Licenciamento -->
         <div id="licenciamento" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -395,7 +328,7 @@
                                 <div class="space-y-3">
                                     <div class="flex justify-between">
                                         <span class="text-gray-700">Taxa de Licenciamento</span>
-                                        <span class="font-semibold text-blue-800">R$ 167,74</span>
+                                        <span class="font-semibold text-blue-800">R$ 98,74</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-gray-700">Taxa de Serviço</span>
@@ -403,7 +336,7 @@
                                     </div>
                                     <div class="flex justify-between text-lg">
                                         <span class="font-semibold text-green-800">Total</span>
-                                        <span class="font-semibold text-green-800">R$ 247,74</span>
+                                        <span class="font-semibold text-green-800">R$ 178,74</span>
                                     </div>
                                 </div>
                             </div>
@@ -437,7 +370,6 @@
             </div>
         </div>
 
-        <!-- Transferência -->
         <div id="transferencia" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -483,21 +415,21 @@
                                 <div class="space-y-2">
                                     <div class="flex justify-between">
                                         <span class="text-gray-700">Taxa de Transferência</span>
-                                        <span class="font-semibold text-green-800">R$ 285,05</span>
+                                        <span class="font-semibold text-green-800">R$ 154,47</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">Vistoria CVS</span>
-                                        <span class="font-semibold text-green-800">R$ 120,00</span>
+                                        <span class="text-gray-700">Vistoria Cautelar</span>
+                                        <span class="font-semibold text-green-800">R$ 88,26</span>
                                     </div>
                                 </div>
                                 <div class="space-y-2">
                                     <div class="flex justify-between">
                                         <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-green-800">R$ 180,00</span>
+                                        <span class="font-semibold text-green-800">R$ 150,00</span>
                                     </div>
                                     <div class="flex justify-between text-lg">
                                         <span class="font-semibold text-green-800">Total</span>
-                                        <span class="font-semibold text-green-800">R$ 585,05</span>
+                                        <span class="font-semibold text-green-800">R$ 392,73</span>
                                     </div>
                                 </div>
                             </div>
@@ -515,7 +447,6 @@
             </div>
         </div>
 
-        <!-- IPVA -->
         <div id="ipva" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -583,7 +514,7 @@
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com o IPVA do meu veículo. Podem me orientar?" 
                                target="_blank" 
                                class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-yellow-700 hover:to-yellow-600 transition duration-300 shadow-lg">
-                                💰 Consultar IPVA
+                                💰 Consultar IPVA 
                             </a>
                         </div>
                     </div>
@@ -591,7 +522,6 @@
             </div>
         </div>
 
-        <!-- Vistoria -->
         <div id="vistoria" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -599,12 +529,13 @@
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,...
+                                    <path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Vistoria Veicular</h1>
-                                <p class="text-indigo-100 text-lg">Inspeção técnica e cautelar</p>
+                                <h1 class="text-3xl font-bold">Vistoria e Inspeção</h1>
+                                <p class="text-indigo-100 text-lg">Vistorias para transferência e regularização</p>
                             </div>
                         </div>
                     </div>
@@ -612,55 +543,55 @@
                     <div class="p-8">
                         <div class="grid md:grid-cols-2 gap-8 mb-8">
                             <div class="service-card bg-indigo-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-indigo-800 mb-4">🔍 Tipos de Vistoria</h3>
+                                <h3 class="text-xl font-semibold text-indigo-800 mb-4">✅ Tipos de Vistoria</h3>
                                 <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• Vistoria Cautelar (Transferência)</li>
-                                    <li>• Vistoria por Sinistro</li>
-                                    <li>• Vistoria de Mudança de Características</li>
-                                    <li>• Vistoria de Regravação de Chassi</li>
+                                    <li>• Vistoria de Transferência</li>
+                                    <li>• Vistoria para 2ª Via do CRV</li>
+                                    <li>• Vistoria para Mudança de Característica</li>
+                                    <li>• Inspeção de Segurança Veicular</li>
                                 </ul>
                             </div>
 
-                            <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores</h3>
+                            <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores</h3>
                                 <div class="space-y-3 text-sm">
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">Vistoria Cautelar</span>
-                                        <span class="font-semibold text-green-800">R$ 88,26</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Vistoria Sinistro</span>
-                                        <span class="font-semibold text-green-800">R$ 88,26</span>
+                                        <span class="text-gray-700">Vistoria para Transferência</span>
+                                        <span class="font-semibold text-blue-800">R$ 88,26</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-green-800">R$ 60,00</span>
+                                        <span class="font-semibold text-blue-800">R$ 50,00</span>
+                                    </div>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-indigo-800">Total</span>
+                                        <span class="font-semibold text-indigo-800">R$ 138,26</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-indigo-50 border-l-4 border-indigo-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-indigo-800 mb-3">📋 Documentos Necessários:</h3>
+                            <h3 class="text-lg font-semibold text-indigo-800 mb-3">🔍 Requisitos da Vistoria</h3>
                             <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
                                 <ul class="space-y-2">
-                                    <li>• CRLV original</li>
-                                    <li>• RG e CPF do proprietário</li>
-                                    <li>• Comprovante de residência</li>
+                                    <li>• Veículo em bom estado de conservação</li>
+                                    <li>• Documentação do veículo em dia</li>
+                                    <li>• Vidros e lacres originais</li>
                                 </ul>
                                 <ul class="space-y-2">
-                                    <li>• Veículo em bom estado</li>
-                                    <li>• Documentos em dia</li>
-                                    <li>• Agendamento prévio</li>
+                                    <li>• Pneus em boas condições</li>
+                                    <li>• Placas e iluminação em ordem</li>
+                                    <li>• Chassi e motor sem adulterações</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso agendar uma vistoria veicular. Podem me ajudar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma vistoria veicular. Podem me ajudar?" 
                                target="_blank" 
                                class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-indigo-700 hover:to-indigo-600 transition duration-300 shadow-lg">
-                                🔍 Agendar Vistoria
+                                🔍 Solicitar Vistoria
                             </a>
                         </div>
                     </div>
@@ -668,7 +599,6 @@
             </div>
         </div>
 
-        <!-- Renovação CNH -->
         <div id="renovacao" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -680,8 +610,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Renovação CNH</h1>
-                                <p class="text-blue-100 text-lg">Renove sua carteira de motorista</p>
+                                <h1 class="text-3xl font-bold">Renovação da CNH</h1>
+                                <p class="text-blue-100 text-lg">Renove sua carteira com segurança e rapidez</p>
                             </div>
                         </div>
                     </div>
@@ -691,129 +621,43 @@
                             <div class="service-card bg-blue-50 p-6 rounded-lg">
                                 <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos Necessários</h3>
                                 <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• CNH original (mesmo vencida)</li>
-                                    <li>• RG original</li>
-                                    <li>• CPF original</li>
+                                    <li>• CNH antiga (original)</li>
+                                    <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
-                                    <li>• Foto 3x4 recente</li>
                                 </ul>
                             </div>
 
                             <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores</h3>
-                                <div class="space-y-3">
-                                    <p class="text-gray-700">
-                                        <strong>Exames + Taxas DETRAN:</strong> Pagar no Local
-                                    </p>
-                                    <p class="text-gray-700">
-                                        <strong>Taxa de Serviço:</strong> R$ 150,00
-                                    </p>
-                                    <p class="text-lg font-semibold text-green-800">
-                                        <strong>Total:</strong> R$ 150,00
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-blue-800 mb-3">📚 Processo Completo Inclui:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Exames médico e psicológico</li>
-                                    <li>• Curso de reciclagem (se necessário)</li>
-                                    <li>• Prova teórica (se necessário)</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Taxas do DETRAN</li>
-                                    <li>• Acompanhamento completo</li>
-                                    <li>• Entrega da nova CNH</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso renovar minha CNH. Podem me orientar sobre o processo?" 
-                               target="_blank" 
-                               class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
-                                🔄 Renovar CNH
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Primeira Habilitação -->
-        <div id="primeira-habilitacao" class="menu-content">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-8">
-                        <div class="flex items-center space-x-4">
-                            <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h1 class="text-3xl font-bold">Primeira Habilitação</h1>
-                                <p class="text-green-100 text-lg">Tire sua primeira CNH conosco</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• RG original</li>
-                                    <li>• CPF original</li>
-                                    <li>• Comprovante de residência atualizado</li>
-                                    <li>• Comprovante de escolaridade</li>
-                                    <li>• Foto 3x4 recente</li>
-                                </ul>
-                            </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">🎯 Categorias Disponíveis</h3>
+                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores e Prazos</h3>
                                 <div class="space-y-3 text-sm">
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">Categoria A (Moto)</span>
-                                        <span class="font-semibold text-blue-800">R$ 1.200,00</span>
+                                        <span class="text-gray-700">Taxa do DETRAN</span>
+                                        <span class="font-semibold text-green-800">R$ 106,17</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">Categoria B (Carro)</span>
-                                        <span class="font-semibold text-blue-800">R$ 1.500,00</span>
+                                        <span class="text-gray-700">Taxa de Serviço</span>
+                                        <span class="font-semibold text-green-800">R$ 100,00</span>
                                     </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Categoria AB</span>
-                                        <span class="font-semibold text-blue-800">R$ 1.800,00</span>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-blue-800">Total</span>
+                                        <span class="font-semibold text-blue-800">R$ 206,17</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-blue-800 mb-3">📚 Processo Completo Inclui:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Exames médico e psicológico</li>
-                                    <li>• Curso teórico completo</li>
-                                    <li>• Material didático</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Aulas práticas de direção</li>
-                                    <li>• Taxas do DETRAN</li>
-                                    <li>• Acompanhamento até a aprovação</li>
-                                </ul>
-                            </div>
+                            <h3 class="text-lg font-semibold text-blue-800 mb-3">✅ Como Funciona:</h3>
+                            <p class="text-sm text-gray-700">
+                                Realizamos a pré-inscrição online, agendamos o exame médico e psicológico, e acompanhamos a emissão da sua nova CNH. Você só precisa comparecer nos exames.
+                            </p>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Quero tirar minha primeira CNH. Podem me orientar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso renovar minha CNH. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
-                                🚗 Começar Primeira Habilitação
+                               class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                                🔄 Solicitar Renovação
                             </a>
                         </div>
                     </div>
@@ -821,8 +665,7 @@
             </div>
         </div>
 
-        <!-- Mudança de Categoria -->
-        <div id="mudanca-categoria" class="menu-content">
+        <div id="primeira-habilitacao" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
                     <div class="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-8">
@@ -833,8 +676,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Mudança de Categoria</h1>
-                                <p class="text-purple-100 text-lg">Amplie suas possibilidades de condução</p>
+                                <h1 class="text-3xl font-bold">Primeira Habilitação</h1>
+                                <p class="text-purple-100 text-lg">Sua jornada para a liberdade começa aqui</p>
                             </div>
                         </div>
                     </div>
@@ -844,54 +687,43 @@
                             <div class="service-card bg-purple-50 p-6 rounded-lg">
                                 <h3 class="text-xl font-semibold text-purple-800 mb-4">📋 Documentos Necessários</h3>
                                 <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• CNH original</li>
-                                    <li>• RG original</li>
-                                    <li>• CPF original</li>
+                                    <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
-                                    <li>• Foto 3x4 recente</li>
+                                    <li>• Exames médico e psicotécnico</li>
                                 </ul>
                             </div>
 
                             <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">🎯 Mudanças Disponíveis</h3>
+                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Processo</h3>
                                 <div class="space-y-3 text-sm">
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">A para AB</span>
-                                        <span class="font-semibold text-blue-800">R$ 800,00</span>
+                                        <span class="text-gray-700">Taxas do DETRAN</span>
+                                        <span class="font-semibold text-blue-800">R$ 213,24</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-gray-700">B para AB</span>
-                                        <span class="font-semibold text-blue-800">R$ 600,00</span>
+                                        <span class="text-gray-700">Taxa de Serviço</span>
+                                        <span class="font-semibold text-blue-800">R$ 150,00</span>
                                     </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">AB para C</span>
-                                        <span class="font-semibold text-blue-800">R$ 1.200,00</span>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-purple-800">Total</span>
+                                        <span class="font-semibold text-purple-800">R$ 363,24</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-purple-50 border-l-4 border-purple-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-3">📚 Processo Inclui:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Exames médico e psicológico</li>
-                                    <li>• Curso teórico (se necessário)</li>
-                                    <li>• Aulas práticas</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Prova teórica (se necessário)</li>
-                                    <li>• Prova prática</li>
-                                    <li>• Taxas do DETRAN</li>
-                                </ul>
-                            </div>
+                            <h3 class="text-lg font-semibold text-purple-800 mb-3">✅ Como Funciona:</h3>
+                            <p class="text-sm text-gray-700">
+                                Facilitamos o processo de inscrição no curso teórico e nas aulas práticas. Acompanhamos cada etapa para que você se concentre apenas em aprender.
+                            </p>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Quero fazer mudança de categoria na minha CNH. Podem me ajudar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso tirar minha primeira habilitação. Podem me ajudar?" 
                                target="_blank" 
                                class="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-purple-600 transition duration-300 shadow-lg">
-                                🔄 Solicitar Mudança de Categoria
+                                🆕 Solicitar Habilitação
                             </a>
                         </div>
                     </div>
@@ -899,73 +731,131 @@
             </div>
         </div>
 
-        <!-- Segunda Via CNH -->
-        <div id="segunda-via" class="menu-content">
+        <div id="mudanca-categoria" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-orange-600 to-orange-500 text-white p-8">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-8">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z"/>
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Segunda Via CNH</h1>
-                                <p class="text-orange-100 text-lg">Reemissão rápida da sua carteira</p>
+                                <h1 class="text-3xl font-bold">Mudança de Categoria</h1>
+                                <p class="text-blue-100 text-lg">Evolua sua CNH para novas categorias</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
                         <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-orange-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-orange-800 mb-4">📋 Documentos Necessários</h3>
+                            <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos Necessários</h3>
                                 <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• RG original</li>
-                                    <li>• CPF original</li>
+                                    <li>• CNH atual (original)</li>
+                                    <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
-                                    <li>• Foto 3x4 recente</li>
-                                    <li>• Boletim de Ocorrência (se roubada/furtada)</li>
+                                    <li>• Certificado de curso especializado (se necessário)</li>
                                 </ul>
                             </div>
 
                             <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores</h3>
-                                <div class="space-y-3">
-                                    <p class="text-gray-700">
-                                        <strong>Taxa DETRAN:</strong> R$ 130,16
-                                    </p>
-                                    <p class="text-gray-700">
-                                        <strong>Taxa de Serviço:</strong> R$ 50,00
-                                    </p>
-                                    <p class="text-lg font-semibold text-green-800">
-                                        <strong>Total:</strong> R$ 180,16
-                                    </p>
+                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores e Prazos</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa do DETRAN</span>
+                                        <span class="font-semibold text-green-800">R$ 150,00</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa de Serviço</span>
+                                        <span class="font-semibold text-green-800">R$ 120,00</span>
+                                    </div>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-blue-800">Total</span>
+                                        <span class="font-semibold text-blue-800">R$ 270,00</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-orange-50 border-l-4 border-orange-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-orange-800 mb-3">⚡ Motivos para Segunda Via:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Perda ou extravio</li>
-                                    <li>• Roubo ou furto</li>
-                                    <li>• Danos no documento</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Alteração de dados</li>
-                                    <li>• Mudança de endereço</li>
-                                    <li>• Documento ilegível</li>
+                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+                            <h3 class="text-lg font-semibold text-blue-800 mb-3">✅ Como Funciona:</h3>
+                            <p class="text-sm text-gray-700">
+                                Auxiliamos em todo o processo, desde a inscrição e agendamento de exames até a emissão da nova CNH. Ideal para quem busca novas oportunidades profissionais.
+                            </p>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda para mudar a categoria da minha CNH. Podem me ajudar?" 
+                               target="_blank" 
+                               class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                                📈 Solicitar Mudança
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="segunda-via" class="menu-content">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white p-8">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-white/20 p-3 rounded-lg">
+                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h1 class="text-3xl font-bold">Segunda Via da CNH</h1>
+                                <p class="text-red-100 text-lg">Obtenha sua CNH rapidamente em caso de perda ou roubo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div class="service-card bg-red-50 p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-red-800 mb-4">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-gray-700 text-sm">
+                                    <li>• RG e CPF (originais)</li>
+                                    <li>• Boletim de Ocorrência (em caso de roubo)</li>
+                                    <li>• Comprovante de residência atualizado</li>
                                 </ul>
                             </div>
+
+                            <div class="service-card bg-blue-50 p-6 rounded-lg">
+                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Prazos</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa do DETRAN</span>
+                                        <span class="font-semibold text-blue-800">R$ 106,17</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa de Serviço</span>
+                                        <span class="font-semibold text-blue-800">R$ 80,00</span>
+                                    </div>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-red-800">Total</span>
+                                        <span class="font-semibold text-red-800">R$ 186,17</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+                            <h3 class="text-lg font-semibold text-red-800 mb-3">✅ Como Funciona:</h3>
+                            <p class="text-sm text-gray-700">
+                                Cuidamos de todo o processo de solicitação da segunda via da sua CNH, desde a emissão das guias até a entrega do documento.
+                            </p>
                         </div>
 
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso da segunda via da minha CNH. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-orange-700 hover:to-orange-600 transition duration-300 shadow-lg">
+                               class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
                                 📄 Solicitar Segunda Via
                             </a>
                         </div>
@@ -973,8 +863,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- CNH PCD -->
+        
         <div id="pcd" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
@@ -987,7 +876,7 @@
                             </div>
                             <div>
                                 <h1 class="text-3xl font-bold">CNH PCD</h1>
-                                <p class="text-teal-100 text-lg">Habilitação especial para pessoas com deficiência</p>
+                                <p class="text-teal-100 text-lg">Facilitamos o processo para condutores com deficiência</p>
                             </div>
                         </div>
                     </div>
@@ -997,44 +886,40 @@
                             <div class="service-card bg-teal-50 p-6 rounded-lg">
                                 <h3 class="text-xl font-semibold text-teal-800 mb-4">📋 Documentos Necessários</h3>
                                 <ul class="space-y-2 text-gray-700 text-sm">
-                                    <li>• RG original</li>
-                                    <li>• CPF original</li>
-                                    <li>• Comprovante de residência atualizado</li>
-                                    <li>• Laudo médico especializado</li>
-                                    <li>• Foto 3x4 recente</li>
+                                    <li>• RG e CPF (originais)</li>
+                                    <li>• Laudo médico com CID</li>
+                                    <li>• CNH atual (se houver)</li>
                                 </ul>
                             </div>
 
                             <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">♿ Adaptações Disponíveis</h3>
-                                <div class="space-y-2 text-sm text-gray-700">
-                                    <p>• Câmbio automático</p>
-                                    <p>• Direção hidráulica</p>
-                                    <p>• Acelerador manual</p>
-                                    <p>• Freio manual</p>
-                                    <p>• Outras adaptações conforme necessidade</p>
+                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Isenções</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa do DETRAN</span>
+                                        <span class="font-semibold text-blue-800">R$ 106,17</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-700">Taxa de Serviço</span>
+                                        <span class="font-semibold text-blue-800">R$ 150,00</span>
+                                    </div>
+                                    <div class="flex justify-between text-lg">
+                                        <span class="font-semibold text-teal-800">Total</span>
+                                        <span class="font-semibold text-teal-800">R$ 256,17</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="bg-teal-50 border-l-4 border-teal-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-teal-800 mb-3">🎯 Processo Especializado:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Avaliação médica especializada</li>
-                                    <li>• Exame psicológico adaptado</li>
-                                    <li>• Aulas práticas com veículo adaptado</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Instrutor especializado</li>
-                                    <li>• Prova prática adaptada</li>
-                                    <li>• Acompanhamento personalizado</li>
-                                </ul>
-                            </div>
+                            <h3 class="text-lg font-semibold text-teal-800 mb-3">✅ Como Funciona:</h3>
+                            <p class="text-sm text-gray-700">
+                                Assessoramos você para obter a CNH PCD, incluindo a preparação de laudos, agendamento de exames e solicitação das isenções fiscais na compra de veículos.
+                            </p>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso de informações sobre CNH PCD. Podem me orientar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda para tirar a CNH PCD. Podem me ajudar?" 
                                target="_blank" 
                                class="inline-block bg-gradient-to-r from-teal-600 to-teal-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-teal-700 hover:to-teal-600 transition duration-300 shadow-lg">
                                 ♿ Solicitar CNH PCD
@@ -1045,84 +930,110 @@
             </div>
         </div>
 
-        <!-- Consultas -->
         <div id="consultas" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white p-8">
+                    <div class="bg-gradient-to-r from-orange-600 to-orange-500 text-white p-8">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Consultas</h1>
-                                <p class="text-indigo-100 text-lg">Verifique a situação da sua CNH</p>
+                                <h1 class="text-3xl font-bold">Consultas e Pesquisas</h1>
+                                <p class="text-orange-100 text-lg">Consulte pendências de veículos e CNH</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                            <div class="service-card bg-indigo-50 p-6 rounded-lg text-center">
-                                <h3 class="text-xl font-semibold text-indigo-800 mb-2">Consulta de Pontos</h3>
-                                <p class="text-gray-600 text-sm mb-4">Verifique quantos pontos você tem na CNH</p>
-                                <p class="font-semibold text-indigo-600">R$ 15,00</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                            <div class="service-card bg-orange-50 p-6 rounded-lg text-center">
+                                <div class="text-4xl mb-3">🚗</div>
+                                <h3 class="text-xl font-semibold text-orange-800 mb-2">Veículo</h3>
+                                <p class="text-gray-700 text-sm mb-4">Consulte débitos, multas e restrições</p>
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma consulta veicular. Podem me ajudar?" 
+                                   target="_blank"
+                                   class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white px-6 py-3 rounded-lg text-sm hover:from-orange-700 hover:to-orange-600 transition duration-300 shadow-lg">
+                                    Consultar
+                                </a>
+                            </div>
+
+                            <div class="service-card bg-yellow-50 p-6 rounded-lg text-center">
+                                <div class="text-4xl mb-3">🆔</div>
+                                <h3 class="text-xl font-semibold text-yellow-800 mb-2">CNH</h3>
+                                <p class="text-gray-700 text-sm mb-4">Verifique sua pontuação, multas e situação</p>
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma consulta da minha CNH. Podem me ajudar?" 
+                                   target="_blank"
+                                   class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 text-white px-6 py-3 rounded-lg text-sm hover:from-yellow-700 hover:to-yellow-600 transition duration-300 shadow-lg">
+                                    Consultar
+                                </a>
                             </div>
 
                             <div class="service-card bg-red-50 p-6 rounded-lg text-center">
-                                <h3 class="text-xl font-semibold text-red-800 mb-2">Consulta de Multas</h3>
-                                <p class="text-gray-600 text-sm mb-4">Veja todas as multas pendentes</p>
-                                <p class="font-semibold text-red-600">R$ 20,00</p>
-                            </div>
-
-                            <div class="service-card bg-green-50 p-6 rounded-lg text-center">
-                                <h3 class="text-xl font-semibold text-green-800 mb-2">Situação da CNH</h3>
-                                <p class="text-gray-600 text-sm mb-4">Status completo da sua habilitação</p>
-                                <p class="font-semibold text-green-600">R$ 10,00</p>
-                            </div>
-                        </div>
-
-                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-indigo-800 mb-3">📊 O que você pode consultar:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Pontuação atual na CNH</li>
-                                    <li>• Multas pendentes</li>
-                                    <li>• Data de vencimento</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Status da habilitação</li>
-                                    <li>• Histórico de infrações</li>
-                                    <li>• Processos em andamento</li>
-                                </ul>
+                                <div class="text-4xl mb-3">📄</div>
+                                <h3 class="text-xl font-semibold text-red-800 mb-2">Documentos</h3>
+                                <p class="text-gray-700 text-sm mb-4">Acompanhe o status do seu processo</p>
+                                <a href="https://wa.me/5511986353603?text=Olá! Preciso consultar o andamento do meu processo. Podem me ajudar?" 
+                                   target="_blank"
+                                   class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-3 rounded-lg text-sm hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
+                                    Consultar
+                                </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-                        <div class="text-center">
-    <div class="text-center space-x-4">
-    <!-- Botão Google Forms -->
-    <a href="#"
-       onclick="window.open('https://forms.gle/mD4V5WZzZbY7y4Ex8', 'popup', 'width=800,height=600,scrollbars=yes,resizable=yes'); return false;" 
-       class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:from-indigo-700 hover:to-indigo-600 transition duration-300 shadow-lg">
-        📋 Preencher Formulário
-    </a>
-
-    <!-- Botão WhatsApp -->
-    <a href="https://wa.me/5511986353603?text=Olá! Gostaria de fazer uma consulta da minha CNH. Podem me ajudar?" 
-       target="_blank" 
-       class="inline-block bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:from-green-600 hover:to-green-700 transition duration-300 shadow-lg">
-        💬 WhatsApp
-    </a>
-</div>
-</div>
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">PAULISTADOCS</h3>
+                    <p class="text-gray-400 text-sm">
+                        Simplificando a sua vida, cuidando da sua documentação.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Contato</h3>
+                    <p class="text-gray-400 text-sm">
+                        Endereço: Rua dos Despachantes, 123 - Centro, São Paulo - SP<br>
+                        Telefone: (11) 98635-3603<br>
+                        Email: contato@paulistadocs.com
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Redes Sociais</h3>
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://www.instagram.com/seu-perfil" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.071 1.17.06 1.83.249 2.228.435.41.196.772.463 1.144.836.372.372.64.734.836 1.144.186.398.375 1.058.435 2.228.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.06 1.17-.249 1.83-.435 2.228-.196.41-.463.772-.836 1.144-.372.372-.734.64-1.144.836-.398.186-1.058.375-2.228.435-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.17-.06-1.83-.249-2.228-.435-.41-.196-.772-.463-1.144-.836-.372-.372-.64-.734-.836-1.144-.186-.398-.375-1.058-.435-2.228-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.06-1.17.249-1.83.435-2.228.196-.41.463-.772.836-1.144.372-.372.734-.64 1.144-.836.398-.186 1.058-.375 2.228-.435 1.266-.059 1.646-.071 4.85-.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.28.06-2.132.259-2.735.497-.61.238-1.174.597-1.768 1.191-.593.594-.952 1.157-1.191 1.768-.238.603-.437 1.455-.497 2.735-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.06 1.28.259 2.132.497 2.735.238.61.597 1.174 1.191 1.768.594.593 1.157.952 1.768 1.191.603.238 1.455.437 2.735.497 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.28-.06 2.132-.259 2.735-.497.61-.238 1.174-.597 1.768-1.191.593-.594.952-1.157 1.191-1.768.238-.603.437-1.455.497-2.735.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.06-1.28-.259-2.132-.497-2.735-.238-.61-.597-1.174-1.191-1.768-.594-.593-1.157-.952-1.768-1.191-.603-.238-1.455-.437-2.735-.497-1.28-.058-1.688-.072-4.947-.072zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666z"/>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5511986353603" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c-5.461 0-9.914 4.453-9.914 9.914 0 1.954.568 3.861 1.644 5.568L2.12 21.88l4.408-1.284c1.696.969 3.596 1.472 5.472 1.472 5.461 0 9.914-4.453 9.914-9.914S17.461 2.163 12 2.163zm3.765 11.235c-.104.283-.64.544-1.164.636-.525.093-1.049.139-1.573.064-.525-.076-1.049-.247-1.573-.418-.525-.17-1.049-.441-1.573-.712-.525-.272-1.049-.544-1.573-.815-.525-.271-1.049-.542-1.573-.813-.524-.271-1.049-.543-1.573-.815-.525-.271-.979-.571-1.432-.907-.453-.337-.87-.71-1.272-1.127-.402-.416-.763-.895-1.08-1.43-.317-.535-.588-1.107-.817-1.716-.228-.609-.387-1.258-.475-1.928-.088-.669-.076-1.343.037-2.016.113-.674.33-1.33.65-1.936.32-.607.72-1.16 1.2-1.657.48-.497 1.053-.914 1.688-1.25.636-.337 1.34-.582 2.05-.733.71-.151 1.41-.219 2.08-.219h.03c.532 0 1.063.076 1.596.227.533.15.992.368 1.38.65.388.283.693.636.915.99.222.355.362.723.42 1.077.058.353.076.697.052 1.03-.024.335-.104.665-.24.99-.136.325-.325.64-.567.933-.243.293-.532.56-1.047.854-.515.293-1.03.565-1.545.836z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center">
+                <p>© 2024 PAULISTADOCS. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
         function showMenu(menuId) {
             // Hide all menu contents
-            const menuContents = document.querySelectorAll('.menu-content');
-            menuContents.forEach(content => {
+            const allContents = document.querySelectorAll('.menu-content');
+            allContents.forEach(content => {
                 content.classList.remove('active');
             });
 
@@ -1143,5 +1054,5 @@
 
 
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'978a3aaf1619a474',t:'MTc1Njc4Njk3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
