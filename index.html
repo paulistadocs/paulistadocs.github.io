@@ -61,6 +61,21 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            z-index: 50;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -124,6 +139,10 @@
                     <button onclick="showMenu('consultas')" class="menu-button text-gray-700 hover:text-blue-600 font-medium transition duration-300">
                         🔍 Consultas
                     </button>
+                    
+                    <button onclick="showMenu('area-cliente')" class="menu-button bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-600 transition duration-300">
+                        👤 Área do Cliente
+                    </button>
                 </nav>
                 
                 <button class="md:hidden" onclick="toggleMobileMenu()">
@@ -132,6 +151,54 @@
                     </svg>
                 </button>
             </div>
+            
+            <!-- Menu Mobile -->
+            <div id="mobileMenu" class="mobile-menu">
+                <div class="px-4 py-2 space-y-1">
+                    <button onclick="showMenu('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        🏠 Home
+                    </button>
+                    <div class="space-y-1">
+                        <div class="px-3 py-2 text-sm font-semibold text-gray-500">🚗 Serviços Veículos</div>
+                        <button onclick="showMenu('licenciamento'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            📋 Licenciamento
+                        </button>
+                        <button onclick="showMenu('transferencia'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            🔄 Transferência
+                        </button>
+                        <button onclick="showMenu('ipva'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            💰 IPVA
+                        </button>
+                        <button onclick="showMenu('vistoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            🔍 Vistoria
+                        </button>
+                    </div>
+                    <div class="space-y-1">
+                        <div class="px-3 py-2 text-sm font-semibold text-gray-500">🆔 Serviços CNH</div>
+                        <button onclick="showMenu('renovacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            🔄 Renovação CNH
+                        </button>
+                        <button onclick="showMenu('primeira-habilitacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            🆕 Primeira Habilitação
+                        </button>
+                        <button onclick="showMenu('mudanca-categoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            📈 Mudança de Categoria
+                        </button>
+                        <button onclick="showMenu('segunda-via'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            📄 Segunda Via
+                        </button>
+                        <button onclick="showMenu('pcd'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                            ♿ CNH PCD
+                        </button>
+                    </div>
+                    <button onclick="showMenu('consultas'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        🔍 Consultas
+                    </button>
+                    <button onclick="showMenu('area-cliente'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 bg-blue-50 text-blue-700 hover:text-blue-800 hover:bg-blue-100 rounded-md font-medium">
+                        👤 Área do Cliente
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -139,19 +206,23 @@
         <div id="home" class="menu-content active">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="relative rounded-3xl overflow-hidden mb-12 shadow-2xl" style="background-image: url('banner.png'); background-size: cover; background-position: center;">
-                    <div class="relative text-center py-16 px-8 text-white">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                            Seus documentos <span class="text-yellow-300">em ordem</span>
-                        </h1>
-                        <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-                            Facilitamos todos os processos relacionados à sua CNH e documentos veiculares. 
-                            Atendimento especializado e agilidade garantida.
-                        </p>
-                        <a href="https://wa.me/5511986353603?text=Olá! Gostaria de mais informações sobre os serviços da PAULISTADOCS." 
-                           target="_blank" 
-                           class="inline-block bg-gradient-to-r from-yellow-500 to-yellow-400 text-blue-900 px-8 py-4 rounded-xl font-bold text-lg hover:from-yellow-400 hover:to-yellow-300 transition duration-300 shadow-xl transform hover:scale-105">
-                            💬 Fale Conosco
-                        </a>
+                    <div class="relative py-16 px-8 text-white">
+                        <div class="text-center">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                                Seus documentos <span class="text-yellow-300">em ordem</span>
+                            </h1>
+                            <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                                Facilitamos todos os processos relacionados à sua CNH e documentos veiculares. 
+                                Atendimento especializado e agilidade garantida.
+                            </p>
+                        </div>
+                        <div class="flex justify-center md:justify-end md:pr-8">
+                            <a href="https://wa.me/5511986353603?text=Olá! Gostaria de mais informações sobre os serviços da PAULISTADOCS." 
+                               target="_blank" 
+                               class="inline-block bg-gradient-to-r from-yellow-500 to-yellow-400 text-blue-900 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:from-yellow-400 hover:to-yellow-300 transition duration-300 shadow-xl transform hover:scale-105">
+                                💬 Fale Conosco
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -986,6 +1057,206 @@
                 </div>
             </div>
         </div>
+
+        <!-- Área do Cliente -->
+        <div id="area-cliente" class="menu-content">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Tela de Login/Cadastro -->
+                <div id="login-screen" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-8 text-center">
+                        <div class="bg-white/20 p-3 rounded-lg inline-block mb-4">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                            </svg>
+                        </div>
+                        <h1 class="text-3xl font-bold mb-2">Área do Cliente</h1>
+                        <p class="text-blue-100">Acesse sua área pessoal para gerenciar seus documentos</p>
+                    </div>
+
+                    <div class="p-8">
+                        <div class="flex justify-center mb-8">
+                            <div class="bg-gray-100 p-1 rounded-lg">
+                                <button id="login-tab" onclick="showTab('login')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white">
+                                    Entrar
+                                </button>
+                                <button id="register-tab" onclick="showTab('register')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600">
+                                    Cadastrar
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Formulário de Login -->
+                        <div id="login-form" class="tab-content">
+                            <form onsubmit="handleLogin(event)" class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="login-email" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="seu@email.com">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                                    <input type="password" id="login-password" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="Sua senha">
+                                </div>
+                                <button type="submit" 
+                                        class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                                    🔐 Entrar
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Formulário de Cadastro -->
+                        <div id="register-form" class="tab-content hidden">
+                            <form onsubmit="handleRegister(event)" class="space-y-6">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                        <input type="text" id="register-name" required 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                               placeholder="Seu nome completo">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">CPF</label>
+                                        <input type="text" id="register-cpf" required 
+                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                               placeholder="000.000.000-00" maxlength="14">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="register-email" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="seu@email.com">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                                    <input type="tel" id="register-phone" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="(11) 99999-9999">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                                    <input type="password" id="register-password" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="Mínimo 6 caracteres" minlength="6">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar Senha</label>
+                                    <input type="password" id="register-confirm-password" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           placeholder="Confirme sua senha">
+                                </div>
+                                <button type="submit" 
+                                        class="w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                                    ✅ Criar Conta
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área Logada do Cliente -->
+                <div id="client-dashboard" class="hidden">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-6">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h1 class="text-2xl font-bold">Bem-vindo, <span id="client-name">Cliente</span>!</h1>
+                                    <p class="text-green-100">Gerencie seus documentos e processos</p>
+                                </div>
+                                <button onclick="logout()" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition duration-300">
+                                    🚪 Sair
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                                <!-- Upload de Documentos -->
+                                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-blue-600 p-2 rounded-lg mr-3">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-blue-800">Enviar Documentos</h3>
+                                    </div>
+                                    <p class="text-gray-700 mb-4">Envie seus documentos de forma segura</p>
+                                    
+                                    <div class="bg-blue-100 border border-blue-300 rounded-lg p-4 mb-4">
+                                        <h4 class="font-semibold text-blue-800 mb-2">📋 Como funciona:</h4>
+                                        <ol class="text-sm text-blue-700 space-y-1">
+                                            <li>1. Selecione seus arquivos abaixo</li>
+                                            <li>2. Aguarde o upload completar</li>
+                                            <li>3. Será aberto automaticamente o WhatsApp</li>
+                                            <li>4. Envie a mensagem para confirmar o envio</li>
+                                            <li>5. Aguarde nossa confirmação de recebimento</li>
+                                        </ol>
+                                    </div>
+                                    
+                                    <div class="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center">
+                                        <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="hidden" onchange="handleFileUpload(event)">
+                                        <label for="file-upload" class="cursor-pointer">
+                                            <div class="text-4xl mb-2">📁</div>
+                                            <p class="text-blue-600 font-medium">Clique para selecionar arquivos</p>
+                                            <p class="text-sm text-gray-500">PDF, JPG, PNG, DOC (máx. 10MB cada)</p>
+                                        </label>
+                                    </div>
+                                    <div id="upload-progress" class="hidden mt-4">
+                                        <div class="bg-gray-200 rounded-full h-2">
+                                            <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        </div>
+                                        <p class="text-sm text-gray-600 mt-2">Enviando arquivos...</p>
+                                    </div>
+                                </div>
+
+                                <!-- Meus Documentos -->
+                                <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-green-600 p-2 rounded-lg mr-3">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-semibold text-green-800">Meus Documentos</h3>
+                                    </div>
+                                    <p class="text-gray-700 mb-4">Visualize seus documentos enviados</p>
+                                    <div id="documents-list" class="space-y-2">
+                                        <p class="text-gray-500 text-sm">Nenhum documento enviado ainda</p>
+                                    </div>
+                                    <button onclick="refreshDocuments()" class="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                                        🔄 Atualizar Lista
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Status dos Processos -->
+                            <div class="bg-gray-50 p-6 rounded-xl">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                                    <span class="bg-gray-600 p-2 rounded-lg mr-3">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                                        </svg>
+                                    </span>
+                                    Status dos Processos
+                                </h3>
+                                <div id="process-status" class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded-lg border">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-gray-700">Nenhum processo em andamento</span>
+                                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-gray-800 text-white py-8 text-center">
@@ -1048,9 +1319,322 @@
         }
 
         function toggleMobileMenu() {
-            // Mobile menu functionality can be added here
-            alert('Menu mobile em desenvolvimento');
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
         }
+
+        // Sistema de Cliente
+        let currentUser = null;
+        let clientDocuments = {};
+
+        // Alternar entre abas de login e cadastro
+        function showTab(tab) {
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+
+            if (tab === 'login') {
+                loginTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white';
+                registerTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600';
+                loginForm.classList.remove('hidden');
+                registerForm.classList.add('hidden');
+            } else {
+                registerTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white';
+                loginTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600';
+                registerForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            }
+        }
+
+        // Máscara para CPF
+        document.addEventListener('DOMContentLoaded', function() {
+            const cpfInput = document.getElementById('register-cpf');
+            if (cpfInput) {
+                cpfInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                    e.target.value = value;
+                });
+            }
+
+            const phoneInput = document.getElementById('register-phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    value = value.replace(/(\d{2})(\d)/, '($1) $2');
+                    value = value.replace(/(\d{5})(\d)/, '$1-$2');
+                    e.target.value = value;
+                });
+            }
+        });
+
+        // Cadastro de cliente
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('register-name').value;
+            const cpf = document.getElementById('register-cpf').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+
+            // Simular cadastro (em produção, seria enviado para servidor)
+            const userData = {
+                id: Date.now().toString(),
+                name: name,
+                cpf: cpf,
+                email: email,
+                phone: phone,
+                password: password,
+                createdAt: new Date().toISOString()
+            };
+
+            // Salvar no localStorage (simulando banco de dados)
+            let users = JSON.parse(localStorage.getItem('paulistadocs_users') || '[]');
+            
+            // Verificar se email já existe
+            if (users.find(user => user.email === email)) {
+                alert('Este email já está cadastrado!');
+                return;
+            }
+
+            users.push(userData);
+            localStorage.setItem('paulistadocs_users', JSON.stringify(users));
+
+            alert('Cadastro realizado com sucesso! Faça login para continuar.');
+            showTab('login');
+            
+            // Limpar formulário
+            document.getElementById('register-name').value = '';
+            document.getElementById('register-cpf').value = '';
+            document.getElementById('register-email').value = '';
+            document.getElementById('register-phone').value = '';
+            document.getElementById('register-password').value = '';
+            document.getElementById('register-confirm-password').value = '';
+        }
+
+        // Login de cliente
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            // Buscar usuário no localStorage
+            const users = JSON.parse(localStorage.getItem('paulistadocs_users') || '[]');
+            const user = users.find(u => u.email === email && u.password === password);
+
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('paulistadocs_current_user', JSON.stringify(user));
+                showClientDashboard();
+            } else {
+                alert('Email ou senha incorretos!');
+            }
+        }
+
+        // Mostrar dashboard do cliente
+        function showClientDashboard() {
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('client-dashboard').classList.remove('hidden');
+            document.getElementById('client-name').textContent = currentUser.name;
+            loadClientDocuments();
+        }
+
+        // Logout
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('paulistadocs_current_user');
+            document.getElementById('client-dashboard').classList.add('hidden');
+            document.getElementById('login-screen').classList.remove('hidden');
+            
+            // Limpar formulários
+            document.getElementById('login-email').value = '';
+            document.getElementById('login-password').value = '';
+            showTab('login');
+        }
+
+        // Upload de arquivos com notificação WhatsApp
+        function handleFileUpload(event) {
+            const files = event.target.files;
+            if (files.length === 0) return;
+
+            const progressDiv = document.getElementById('upload-progress');
+            const progressBar = document.getElementById('progress-bar');
+            
+            progressDiv.classList.remove('hidden');
+            
+            // Simular upload com progresso
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Salvar arquivos no "banco de dados" do cliente
+                    const clientId = currentUser.id;
+                    let allDocuments = JSON.parse(localStorage.getItem('paulistadocs_documents') || '{}');
+                    
+                    if (!allDocuments[clientId]) {
+                        allDocuments[clientId] = [];
+                    }
+                    
+                    const uploadedFiles = [];
+                    Array.from(files).forEach(file => {
+                        const document = {
+                            id: Date.now() + Math.random(),
+                            name: file.name,
+                            size: file.size,
+                            type: file.type,
+                            uploadDate: new Date().toISOString()
+                        };
+                        allDocuments[clientId].push(document);
+                        uploadedFiles.push(document);
+                    });
+                    
+                    localStorage.setItem('paulistadocs_documents', JSON.stringify(allDocuments));
+                    
+                    // Enviar notificação automática para WhatsApp
+                    sendWhatsAppNotification(uploadedFiles);
+                    
+                    setTimeout(() => {
+                        progressDiv.classList.add('hidden');
+                        progressBar.style.width = '0%';
+                        alert('Arquivos enviados com sucesso! Você receberá uma confirmação em breve.');
+                        loadClientDocuments();
+                        event.target.value = ''; // Limpar input
+                    }, 500);
+                }
+            }, 200);
+        }
+
+        // Enviar notificação automática para WhatsApp
+        function sendWhatsAppNotification(uploadedFiles) {
+            const now = new Date();
+            const dateTime = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
+            
+            // Lista de arquivos enviados
+            const filesList = uploadedFiles.map(file => 
+                `• ${file.name} (${formatFileSize(file.size)})`
+            ).join('\n');
+            
+            // Mensagem completa com dados do cliente
+            const message = `🚨 *NOVO UPLOAD DE DOCUMENTOS* 🚨
+
+👤 *CLIENTE:* ${currentUser.name}
+📧 *Email:* ${currentUser.email}
+📱 *Telefone:* ${currentUser.phone}
+🆔 *CPF:* ${currentUser.cpf}
+📅 *Data/Hora:* ${dateTime}
+
+📁 *ARQUIVOS ENVIADOS:*
+${filesList}
+
+📊 *Total de arquivos:* ${uploadedFiles.length}
+
+⚠️ *AÇÃO NECESSÁRIA:*
+O cliente enviou documentos através da área do cliente. Entre em contato para confirmar o recebimento e dar continuidade ao processo.
+
+---
+*Mensagem automática do sistema PAULISTADOCS*`;
+
+            // Abrir WhatsApp com a mensagem
+            const whatsappUrl = `https://wa.me/5511986353603?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Carregar documentos do cliente
+        function loadClientDocuments() {
+            const clientId = currentUser.id;
+            const allDocuments = JSON.parse(localStorage.getItem('paulistadocs_documents') || '{}');
+            const clientDocs = allDocuments[clientId] || [];
+            
+            const documentsList = document.getElementById('documents-list');
+            
+            if (clientDocs.length === 0) {
+                documentsList.innerHTML = '<p class="text-gray-500 text-sm">Nenhum documento enviado ainda</p>';
+                return;
+            }
+            
+            documentsList.innerHTML = clientDocs.map(doc => `
+                <div class="flex items-center justify-between bg-white p-3 rounded-lg border">
+                    <div class="flex items-center">
+                        <div class="text-2xl mr-3">📄</div>
+                        <div>
+                            <p class="font-medium text-gray-800">${doc.name}</p>
+                            <p class="text-sm text-gray-500">${formatFileSize(doc.size)} • ${formatDate(doc.uploadDate)}</p>
+                        </div>
+                    </div>
+                    <button onclick="deleteDocument('${doc.id}')" class="text-red-500 hover:text-red-700 p-1">
+                        🗑️
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Atualizar lista de documentos
+        function refreshDocuments() {
+            loadClientDocuments();
+            
+            // Feedback visual
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏳ Atualizando...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }, 1000);
+        }
+
+        // Deletar documento
+        function deleteDocument(docId) {
+            if (!confirm('Tem certeza que deseja excluir este documento?')) return;
+            
+            const clientId = currentUser.id;
+            let allDocuments = JSON.parse(localStorage.getItem('paulistadocs_documents') || '{}');
+            
+            if (allDocuments[clientId]) {
+                allDocuments[clientId] = allDocuments[clientId].filter(doc => doc.id != docId);
+                localStorage.setItem('paulistadocs_documents', JSON.stringify(allDocuments));
+                loadClientDocuments();
+            }
+        }
+
+        // Utilitários
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('pt-BR') + ' às ' + date.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
+        }
+
+        // Verificar se há usuário logado ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedUser = localStorage.getItem('paulistadocs_current_user');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                // Não mostrar automaticamente o dashboard, deixar o usuário navegar
+            }
+        });
 
 
     </script>
