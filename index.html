@@ -1189,22 +1189,39 @@
                                     <div class="bg-blue-100 border border-blue-300 rounded-lg p-4 mb-4">
                                         <h4 class="font-semibold text-blue-800 mb-2">📋 Como funciona:</h4>
                                         <ol class="text-sm text-blue-700 space-y-1">
-                                            <li>1. Selecione seus arquivos abaixo</li>
-                                            <li>2. Aguarde o upload completar</li>
-                                            <li>3. Será aberto automaticamente o WhatsApp</li>
-                                            <li>4. Envie a mensagem para confirmar o envio</li>
-                                            <li>5. Aguarde nossa confirmação de recebimento</li>
+                                            <li>1. Clique para adicionar arquivos (pode repetir várias vezes)</li>
+                                            <li>2. Navegue em diferentes pastas e adicione mais arquivos</li>
+                                            <li>3. Visualize todos os arquivos selecionados</li>
+                                            <li>4. Clique em "Enviar Agora" quando estiver pronto</li>
+                                            <li>5. Confirme o envio via WhatsApp/Email</li>
                                         </ol>
                                     </div>
                                     
                                     <div class="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center">
-                                        <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="hidden" onchange="handleFileUpload(event)">
+                                        <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="hidden" onchange="addFilesToQueue(event)">
                                         <label for="file-upload" class="cursor-pointer">
                                             <div class="text-4xl mb-2">📁</div>
-                                            <p class="text-blue-600 font-medium">Clique para selecionar arquivos</p>
+                                            <p class="text-blue-600 font-medium">Clique para adicionar arquivos</p>
                                             <p class="text-sm text-gray-500">PDF, JPG, PNG, DOC (máx. 10MB cada)</p>
                                         </label>
                                     </div>
+                                    
+                                    <!-- Área de arquivos selecionados -->
+                                    <div id="files-queue" class="hidden mt-4">
+                                        <h4 class="font-semibold text-blue-800 mb-3">📋 Arquivos Selecionados:</h4>
+                                        <div id="files-list" class="space-y-2 mb-4 max-h-40 overflow-y-auto">
+                                            <!-- Arquivos aparecerão aqui -->
+                                        </div>
+                                        <div class="flex gap-3">
+                                            <button onclick="sendAllFiles()" class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 font-medium">
+                                                📤 Enviar Agora (<span id="files-count">0</span> arquivos)
+                                            </button>
+                                            <button onclick="clearAllFiles()" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
+                                                🗑️ Limpar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
                                     <div id="upload-progress" class="hidden mt-4">
                                         <div class="bg-gray-200 rounded-full h-2">
                                             <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
@@ -1326,6 +1343,7 @@
         // Sistema de Cliente
         let currentUser = null;
         let clientDocuments = {};
+        let filesQueue = []; // Fila de arquivos selecionados
 
         // Alternar entre abas de login e cadastro
         function showTab(tab) {
@@ -1463,10 +1481,81 @@
             showTab('login');
         }
 
-        // Upload de arquivos com notificação WhatsApp
-        function handleFileUpload(event) {
+        // Adicionar arquivos à fila (sem enviar ainda)
+        function addFilesToQueue(event) {
             const files = event.target.files;
             if (files.length === 0) return;
+
+            Array.from(files).forEach(file => {
+                // Verificar se arquivo já existe na fila
+                const exists = filesQueue.some(f => f.name === file.name && f.size === file.size);
+                if (!exists) {
+                    const fileData = {
+                        id: Date.now() + Math.random(),
+                        name: file.name,
+                        size: file.size,
+                        type: file.type,
+                        file: file // Manter referência do arquivo
+                    };
+                    filesQueue.push(fileData);
+                }
+            });
+
+            updateFilesDisplay();
+            event.target.value = ''; // Limpar input para permitir selecionar da mesma pasta novamente
+        }
+
+        // Atualizar exibição dos arquivos selecionados
+        function updateFilesDisplay() {
+            const filesQueueDiv = document.getElementById('files-queue');
+            const filesList = document.getElementById('files-list');
+            const filesCount = document.getElementById('files-count');
+
+            if (filesQueue.length === 0) {
+                filesQueueDiv.classList.add('hidden');
+                return;
+            }
+
+            filesQueueDiv.classList.remove('hidden');
+            filesCount.textContent = filesQueue.length;
+
+            filesList.innerHTML = filesQueue.map(file => `
+                <div class="flex items-center justify-between bg-white p-3 rounded-lg border">
+                    <div class="flex items-center">
+                        <div class="text-2xl mr-3">${getFileIcon(file.type)}</div>
+                        <div>
+                            <p class="font-medium text-gray-800">${file.name}</p>
+                            <p class="text-sm text-gray-500">${formatFileSize(file.size)}</p>
+                        </div>
+                    </div>
+                    <button onclick="removeFileFromQueue('${file.id}')" class="text-red-500 hover:text-red-700 p-1">
+                        ❌
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Remover arquivo da fila
+        function removeFileFromQueue(fileId) {
+            filesQueue = filesQueue.filter(file => file.id != fileId);
+            updateFilesDisplay();
+        }
+
+        // Limpar todos os arquivos
+        function clearAllFiles() {
+            if (filesQueue.length === 0) return;
+            if (confirm('Tem certeza que deseja remover todos os arquivos selecionados?')) {
+                filesQueue = [];
+                updateFilesDisplay();
+            }
+        }
+
+        // Enviar todos os arquivos da fila
+        function sendAllFiles() {
+            if (filesQueue.length === 0) {
+                alert('Nenhum arquivo selecionado!');
+                return;
+            }
 
             const progressDiv = document.getElementById('upload-progress');
             const progressBar = document.getElementById('progress-bar');
@@ -1491,7 +1580,7 @@
                     }
                     
                     const uploadedFiles = [];
-                    Array.from(files).forEach(file => {
+                    filesQueue.forEach(file => {
                         const document = {
                             id: Date.now() + Math.random(),
                             name: file.name,
@@ -1512,11 +1601,23 @@
                         progressDiv.classList.add('hidden');
                         progressBar.style.width = '0%';
                         alert('Arquivos enviados com sucesso! Você receberá uma confirmação em breve.');
+                        
+                        // Limpar fila após envio
+                        filesQueue = [];
+                        updateFilesDisplay();
+                        
                         loadClientDocuments();
-                        event.target.value = ''; // Limpar input
                     }, 500);
                 }
             }, 200);
+        }
+
+        // Obter ícone do arquivo baseado no tipo
+        function getFileIcon(fileType) {
+            if (fileType.includes('pdf')) return '📄';
+            if (fileType.includes('image')) return '🖼️';
+            if (fileType.includes('word') || fileType.includes('document')) return '📝';
+            return '📁';
         }
 
         // Enviar notificação automática para WhatsApp
