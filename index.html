@@ -1206,11 +1206,12 @@
                                     
                                     <div class="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-4">
                                         <p class="text-sm text-orange-800">
-                                            <strong>📎 Como enviar arquivos:</strong><br>
-                                            1. Clique "Enviar Agora" para notificar a PAULISTADOCS<br>
-                                            2. Após enviar a mensagem, anexe os arquivos manualmente<br>
-                                            3. Use o botão 📎 (clipe) do WhatsApp para anexar<br>
-                                            4. Os arquivos não vão automaticamente por limitações do WhatsApp
+                                            <strong>📎 Como funciona:</strong><br>
+                                            1. Selecione os arquivos que deseja enviar<br>
+                                            2. Clique "Enviar Agora" para notificar a PAULISTADOCS<br>
+                                            3. Um email será enviado com a lista dos seus arquivos<br>
+                                            4. A PAULISTADOCS entrará em contato para solicitar os documentos<br>
+                                            5. Você poderá enviar por WhatsApp, email ou entregar pessoalmente
                                         </p>
                                     </div>
                                     
@@ -1700,26 +1701,50 @@
 🆔 CPF: ${currentUser.cpf}
 📅 Data/Hora: ${dateTime}
 
-📁 ARQUIVOS ENVIADOS:
+📁 ARQUIVOS PARA SOLICITAR:
 ${filesList}
 
 📊 Total de arquivos: ${uploadedFiles.length}
 
-⚠️ AÇÃO NECESSÁRIA:
-O cliente enviou documentos através da área do cliente. 
-Entre em contato para confirmar o recebimento e dar continuidade ao processo.
+⚠️ PRÓXIMOS PASSOS:
+1. Entre em contato com o cliente
+2. Solicite o envio dos arquivos listados acima
+3. Cliente pode enviar por WhatsApp, email ou entregar pessoalmente
+
+💡 IMPORTANTE: Os arquivos não vêm anexados automaticamente por limitações de segurança dos navegadores. Use esta lista para saber exatamente quais documentos solicitar.
 
 ---
 Mensagem automática do sistema PAULISTADOCS`;
 
-            // Abrir cliente de email automaticamente
+            // Tentar abrir cliente de email com múltiplos métodos
             const mailtoUrl = `mailto:paulistadocs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            window.location.href = mailtoUrl;
             
-            // Mostrar confirmação
+            try {
+                // Método 1: Tentar window.location.href
+                window.location.href = mailtoUrl;
+                
+                // Método 2: Fallback com window.open
+                setTimeout(() => {
+                    const emailWindow = window.open(mailtoUrl, '_self');
+                    if (!emailWindow) {
+                        // Método 3: Criar link temporário e clicar
+                        const tempLink = document.createElement('a');
+                        tempLink.href = mailtoUrl;
+                        tempLink.style.display = 'none';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                    }
+                }, 500);
+                
+            } catch (error) {
+                console.error('Erro ao abrir email:', error);
+            }
+            
+            // Mostrar confirmação sempre
             setTimeout(() => {
                 showEmailConfirmation(uploadedFiles);
-            }, 1000);
+            }, 1500);
         }
 
         // Mostrar confirmação de email enviado
@@ -1728,10 +1753,10 @@ Mensagem automática do sistema PAULISTADOCS`;
             modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
             modal.innerHTML = `
                 <div class="bg-white rounded-xl p-6 max-w-md mx-4">
-                    <h3 class="text-xl font-bold text-green-600 mb-4">📧 Email Enviado!</h3>
+                    <h3 class="text-xl font-bold text-green-600 mb-4">📧 Notificação Enviada!</h3>
                     <p class="text-gray-700 mb-4">
-                        Seus documentos foram registrados e um email foi enviado para 
-                        <strong>paulistadocs@gmail.com</strong> com todos os detalhes.
+                        Seus documentos foram registrados! Se o email não abriu automaticamente, 
+                        copie a mensagem abaixo e envie para <strong>paulistadocs@gmail.com</strong>
                     </p>
                     <p class="text-sm text-gray-600 mb-6">
                         <strong>Próximos passos:</strong><br>
@@ -1741,9 +1766,14 @@ Mensagem automática do sistema PAULISTADOCS`;
                     </p>
                     
                     <div class="space-y-3">
+                        <button onclick="copyEmailMessage()" 
+                                class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                            📋 Copiar Mensagem para Email
+                        </button>
+                        
                         <button onclick="sendWhatsAppBackup()" 
                                 class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300">
-                            📱 Enviar também por WhatsApp
+                            📱 Enviar por WhatsApp
                         </button>
                         
                         <button onclick="closeEmailModal()" 
@@ -1758,6 +1788,24 @@ Mensagem automática do sistema PAULISTADOCS`;
             
             // Salvar dados para backup WhatsApp
             window.currentUploadedFiles = uploadedFiles;
+            window.currentEmailMessage = `Assunto: NOVO UPLOAD - ${currentUser.name}
+
+${emailBody}`;
+            
+            window.copyEmailMessage = function() {
+                navigator.clipboard.writeText(window.currentEmailMessage).then(() => {
+                    alert('Mensagem copiada! Cole no seu email e envie para paulistadocs@gmail.com');
+                }).catch(() => {
+                    // Fallback para navegadores antigos
+                    const textArea = document.createElement('textarea');
+                    textArea.value = window.currentEmailMessage;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Mensagem copiada! Cole no seu email e envie para paulistadocs@gmail.com');
+                });
+            };
             
             window.sendWhatsAppBackup = function() {
                 closeEmailModal();
