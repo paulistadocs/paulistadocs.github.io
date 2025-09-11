@@ -1675,7 +1675,7 @@ O cliente enviou documentos através da área do cliente. Entre em contato para 
                     <div class="space-y-3">
                         <button onclick="openWhatsAppWeb('${encodeURIComponent(message)}')" 
                                 class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300">
-                            💻 Abrir WhatsApp Web
+                            💻 Abrir WhatsApp
                         </button>
                         
                         <button onclick="copyMessage('${encodeURIComponent(message)}')" 
@@ -1700,8 +1700,25 @@ O cliente enviou documentos através da área do cliente. Entre em contato para 
             
             // Funções do modal
             window.openWhatsAppWeb = function(msg) {
-                const whatsappUrl = `https://web.whatsapp.com/send?phone=5511986353603&text=${msg}`;
-                window.open(whatsappUrl, '_blank');
+                // Tentar abrir WhatsApp Desktop primeiro, depois Web
+                const whatsappDesktop = `whatsapp://send?phone=5511986353603&text=${msg}`;
+                const whatsappWeb = `https://web.whatsapp.com/send?phone=5511986353603&text=${msg}`;
+                
+                // Criar link temporário para testar protocolo
+                const tempLink = document.createElement('a');
+                tempLink.href = whatsappDesktop;
+                
+                // Tentar abrir WhatsApp Desktop
+                try {
+                    window.location.href = whatsappDesktop;
+                    // Se não funcionar em 2 segundos, abrir WhatsApp Web
+                    setTimeout(() => {
+                        window.open(whatsappWeb, '_blank');
+                    }, 2000);
+                } catch (e) {
+                    // Fallback para WhatsApp Web
+                    window.open(whatsappWeb, '_blank');
+                }
                 closeModal();
             };
             
@@ -1710,13 +1727,43 @@ O cliente enviou documentos através da área do cliente. Entre em contato para 
                 navigator.clipboard.writeText(decodedMessage).then(() => {
                     alert('Mensagem copiada! Cole no WhatsApp ou envie por outro meio.');
                     closeModal();
+                }).catch(() => {
+                    // Fallback para navegadores que não suportam clipboard
+                    const textArea = document.createElement('textarea');
+                    textArea.value = decodedMessage;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    alert('Mensagem copiada! Cole no WhatsApp ou envie por outro meio.');
+                    closeModal();
                 });
             };
             
             window.sendEmail = function(msg) {
                 const decodedMessage = decodeURIComponent(msg);
-                const emailUrl = `mailto:contato@paulistadocs.com?subject=Novo Upload de Documentos&body=${encodeURIComponent(decodedMessage)}`;
-                window.location.href = emailUrl;
+                
+                // Dados do cliente para o email
+                const emailSubject = `NOVO UPLOAD - ${currentUser.name}`;
+                const emailBody = decodedMessage;
+                
+                // Tentar diferentes métodos de envio de email
+                try {
+                    // Método 1: mailto (mais compatível)
+                    const mailtoUrl = `mailto:paulistadocs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoUrl;
+                    
+                    // Feedback para o usuário
+                    setTimeout(() => {
+                        alert('Cliente de email aberto! Se não funcionou, copie a mensagem e envie manualmente.');
+                    }, 1000);
+                    
+                } catch (e) {
+                    // Fallback: copiar mensagem
+                    navigator.clipboard.writeText(decodedMessage).then(() => {
+                        alert('Erro ao abrir email. Mensagem copiada! Envie manualmente para: paulistadocs@gmail.com');
+                    });
+                }
                 closeModal();
             };
             
