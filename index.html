@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAULISTADOCS - Serviços Automotivos e CNH</title>
+    <title>DESPACHANTE FALCÃO - Serviços Automotivos e CNH</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .floating-whatsapp {
@@ -85,7 +85,7 @@
                 <div class="flex items-center space-x-3">
                     <div class="bg-white p-2 rounded-xl shadow-lg">
                         <img src="https://lh3.googleusercontent.com/d/1BpdZUDReyMpxzb1dIzBA9AXc04srCTpj" 
-                             alt="PAULISTADOCS Logo" 
+                             alt="DESPACHANTE FALCÃO Logo" 
                              class="w-12 h-12 object-contain"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="bg-gradient-to-br from-blue-700 to-blue-500 p-3 rounded-xl shadow-lg w-12 h-12 items-center justify-center" style="display: none;">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">PAULISTADOCS</h1>
+                        <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">DESPACHANTE FALCÃO</h1>
                         <p class="text-sm text-gray-600 font-medium">Serviços Automotivos e CNH</p>
                     </div>
                 </div>
@@ -1435,7 +1435,7 @@
             };
 
             // Salvar no localStorage (simulando banco de dados)
-            let users = JSON.parse(localStorage.getItem('paulistadocs_users') || '[]');
+            let users = JSON.parse(localStorage.getItem('despachantefalcao_users') || '[]');
             
             // Verificar se email já existe
             if (users.find(user => user.email === email)) {
@@ -1444,7 +1444,7 @@
             }
 
             users.push(userData);
-            localStorage.setItem('paulistadocs_users', JSON.stringify(users));
+            localStorage.setItem('despachantefalcao_users', JSON.stringify(users));
 
             alert('Cadastro realizado com sucesso! Faça login para continuar.');
             showTab('login');
@@ -1466,12 +1466,12 @@
             const password = document.getElementById('login-password').value;
 
             // Buscar usuário no localStorage
-            const users = JSON.parse(localStorage.getItem('paulistadocs_users') || '[]');
+            const users = JSON.parse(localStorage.getItem('despachantefalcao_users') || '[]');
             const user = users.find(u => u.email === email && u.password === password);
 
             if (user) {
                 currentUser = user;
-                localStorage.setItem('paulistadocs_current_user', JSON.stringify(user));
+                localStorage.setItem('despachantefalcao_current_user', JSON.stringify(user));
                 showClientDashboard();
             } else {
                 // Se não encontrou, mostrar opção de cadastro rápido
@@ -1533,7 +1533,7 @@
         // Logout
         function logout() {
             currentUser = null;
-            localStorage.removeItem('paulistadocs_current_user');
+            localStorage.removeItem('despachantefalcao_current_user');
             document.getElementById('client-dashboard').classList.add('hidden');
             document.getElementById('login-screen').classList.remove('hidden');
             
@@ -1635,7 +1635,7 @@
                     
                     // Salvar arquivos no "banco de dados" do cliente
                     const clientId = currentUser.id;
-                    let allDocuments = JSON.parse(localStorage.getItem('paulistadocs_documents') || '{}');
+                    let allDocuments = JSON.parse(localStorage.getItem('despachantefalcao_documents') || '{}');
                     
                     if (!allDocuments[clientId]) {
                         allDocuments[clientId] = [];
@@ -1654,7 +1654,7 @@
                         uploadedFiles.push(document);
                     });
                     
-                    localStorage.setItem('paulistadocs_documents', JSON.stringify(allDocuments));
+                    localStorage.setItem('despachantefalcao_documents', JSON.stringify(allDocuments));
                     
                     // Enviar automaticamente por email
                     sendEmailWithFiles(uploadedFiles);
@@ -1714,7 +1714,7 @@ ${filesList}
 💡 IMPORTANTE: Os arquivos não vêm anexados automaticamente por limitações de segurança dos navegadores. Use esta lista para saber exatamente quais documentos solicitar.
 
 ---
-Mensagem automática do sistema PAULISTADOCS`;
+Mensagem automática do sistema DESPACHANTE FALCÃO`;
 
             // Tentar abrir cliente de email com múltiplos métodos
             const mailtoUrl = `mailto:paulistadocs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
