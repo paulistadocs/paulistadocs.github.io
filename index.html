@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Despachante Falcão | Regularização de CNH e Veículos na Freguesia do Ó - SP</title>
+    <title>DESPACHANTE FALCÃO - Serviços Automotivos e CNH</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --neon-red: #FF0040;
+            --neon-yellow: #FFD700;
+            --chrome-dark: #1A1A1A;
+            --chrome-light: #C0C0C0;
+            --chrome-silver: #E8E8E8;
+        }
+        
         .floating-whatsapp {
             position: fixed;
             bottom: 20px;
@@ -35,6 +43,7 @@
             border-radius: 8px;
             top: 100%;
             left: 0;
+            border: 1px solid var(--chrome-light);
         }
         
         .dropdown:hover .dropdown-content {
@@ -42,7 +51,7 @@
         }
         
         .dropdown-content a {
-            color: #374151;
+            color: var(--chrome-dark);
             padding: 12px 16px;
             text-decoration: none;
             display: block;
@@ -50,16 +59,19 @@
         }
         
         .dropdown-content a:hover {
-            background-color: #f3f4f6;
+            background-color: var(--chrome-silver);
+            color: var(--neon-red);
         }
         
         .service-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid var(--chrome-light);
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(255, 0, 64, 0.2);
+            border-color: var(--neon-red);
         }
         
         .mobile-menu {
@@ -68,45 +80,84 @@
             top: 100%;
             left: 0;
             right: 0;
-            background-color: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--chrome-dark) 0%, #2a2a2a 100%);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             z-index: 50;
+            border-bottom: 2px solid var(--neon-red);
         }
         
         .mobile-menu.active {
             display: block;
         }
+        
+        .neon-button {
+            background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);
+            box-shadow: 0 0 15px rgba(255, 0, 64, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-button:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 64, 0.8);
+            transform: scale(1.05);
+        }
+        
+        .chrome-button {
+            background: linear-gradient(135deg, var(--chrome-light) 0%, var(--chrome-silver) 100%);
+            color: var(--chrome-dark);
+            border: 2px solid var(--neon-yellow);
+            transition: all 0.3s ease;
+        }
+        
+        .chrome-button:hover {
+            background: linear-gradient(135deg, var(--chrome-silver) 0%, white 100%);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        
+        .mobile-menu-item {
+            color: var(--chrome-silver);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-item:hover {
+            color: var(--neon-red);
+            background: rgba(255, 0, 64, 0.1);
+        }
+        
+        .mobile-menu-header {
+            color: var(--neon-yellow);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <header class="sticky top-0 z-50" style="background: linear-gradient(135deg, var(--chrome-dark) 0%, #2a2a2a 100%); border-bottom: 2px solid var(--neon-red);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
-                    <div class="bg-white p-2 rounded-xl shadow-lg">
-                        <img src="https://lh3.googleusercontent.com/d/1BpdZUDReyMpxzb1dIzBA9AXc04srCTpj" 
+                    <div class="bg-white p-2 rounded-xl shadow-lg" style="border: 2px solid var(--neon-red);">
+                        <img src="https://drive.google.com/uc?export=view&id=1toTxzgFQFXpNNCgJZogcBAtn6FQZkomb" 
                              alt="DESPACHANTE FALCÃO Logo" 
                              class="w-12 h-12 object-contain"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="bg-gradient-to-br from-blue-700 to-blue-500 p-3 rounded-xl shadow-lg w-12 h-12 items-center justify-center" style="display: none;">
+                        <div class="bg-gradient-to-br from-red-600 to-red-700 p-3 rounded-xl shadow-lg w-12 h-12 items-center justify-center" style="display: none;">
                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19M17,17H7V15H17V17M17,13H7V11H17V13M17,9H7V7H17V9Z"/>
                             </svg>
                         </div>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">DESPACHANTE FALCÃO</h1>
-                        <p class="text-sm text-gray-600 font-medium">Serviços Automotivos e CNH</p>
+                        <h1 class="text-3xl font-bold" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">DESPACHANTE FALCÃO</h1>
+                        <p class="text-sm" style="color: var(--chrome-silver);">Serviços Automotivos e CNH</p>
                     </div>
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
-                    <button onclick="showMenu('home')" class="menu-button text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                    <button onclick="showMenu('home')" class="menu-button font-medium transition duration-300" style="color: var(--chrome-silver);">
                         🏠 Home
                     </button>
                     
                     <div class="dropdown">
-                        <button class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 flex items-center">
+                        <button class="font-medium transition duration-300 flex items-center" style="color: var(--chrome-silver);">
                             🚗 Serviços Veículos
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -121,7 +172,7 @@
                     </div>
                     
                     <div class="dropdown">
-                        <button class="text-gray-700 hover:text-blue-600 font-medium transition duration-300 flex items-center">
+                        <button class="font-medium transition duration-300 flex items-center" style="color: var(--chrome-silver);">
                             🆔 Serviços CNH
                             <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -136,16 +187,16 @@
                         </div>
                     </div>
                     
-                    <button onclick="showMenu('consultas')" class="menu-button text-gray-700 hover:text-blue-600 font-medium transition duration-300">
+                    <button onclick="showMenu('consultas')" class="menu-button font-medium transition duration-300" style="color: var(--chrome-silver);">
                         🔍 Consultas
                     </button>
                     
-                    <button onclick="showMenu('area-cliente')" class="menu-button bg-gradient-to-r from-blue-600 to-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-700 hover:to-blue-600 transition duration-300">
+                    <button onclick="showMenu('area-cliente')" class="menu-button px-4 py-2 rounded-lg font-medium transition duration-300 neon-button text-white">
                         👤 Área do Cliente
                     </button>
                 </nav>
                 
-                <button class="md:hidden" onclick="toggleMobileMenu()">
+                <button class="md:hidden" onclick="toggleMobileMenu()" style="color: var(--neon-yellow);">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -155,46 +206,46 @@
             <!-- Menu Mobile -->
             <div id="mobileMenu" class="mobile-menu">
                 <div class="px-4 py-2 space-y-1">
-                    <button onclick="showMenu('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                    <button onclick="showMenu('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md mobile-menu-item">
                         🏠 Home
                     </button>
                     <div class="space-y-1">
-                        <div class="px-3 py-2 text-sm font-semibold text-gray-500">🚗 Serviços Veículos</div>
-                        <button onclick="showMenu('licenciamento'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <div class="px-3 py-2 text-sm mobile-menu-header">🚗 Serviços Veículos</div>
+                        <button onclick="showMenu('licenciamento'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             📋 Licenciamento
                         </button>
-                        <button onclick="showMenu('transferencia'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('transferencia'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             🔄 Transferência
                         </button>
-                        <button onclick="showMenu('ipva'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('ipva'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             💰 IPVA
                         </button>
-                        <button onclick="showMenu('vistoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('vistoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             🔍 Vistoria
                         </button>
                     </div>
                     <div class="space-y-1">
-                        <div class="px-3 py-2 text-sm font-semibold text-gray-500">🆔 Serviços CNH</div>
-                        <button onclick="showMenu('renovacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <div class="px-3 py-2 text-sm mobile-menu-header">🆔 Serviços CNH</div>
+                        <button onclick="showMenu('renovacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             🔄 Renovação CNH
                         </button>
-                        <button onclick="showMenu('primeira-habilitacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('primeira-habilitacao'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             🆕 Primeira Habilitação
                         </button>
-                        <button onclick="showMenu('mudanca-categoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('mudanca-categoria'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             📈 Mudança de Categoria
                         </button>
-                        <button onclick="showMenu('segunda-via'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('segunda-via'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             📄 Segunda Via
                         </button>
-                        <button onclick="showMenu('pcd'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                        <button onclick="showMenu('pcd'); toggleMobileMenu();" class="block w-full text-left px-6 py-2 rounded-md mobile-menu-item">
                             ♿ CNH PCD
                         </button>
                     </div>
-                    <button onclick="showMenu('consultas'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">
+                    <button onclick="showMenu('consultas'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md mobile-menu-item">
                         🔍 Consultas
                     </button>
-                    <button onclick="showMenu('area-cliente'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 bg-blue-50 text-blue-700 hover:text-blue-800 hover:bg-blue-100 rounded-md font-medium">
+                    <button onclick="showMenu('area-cliente'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md font-medium neon-button text-white">
                         👤 Área do Cliente
                     </button>
                 </div>
@@ -217,9 +268,9 @@
                             </p>
                         </div>
                         <div class="flex justify-center md:justify-end md:pr-8">
-                            <a href="https://wa.me/5511986353603?text=Olá! Gostaria de mais informações sobre os serviços da PAULISTADOCS." 
+                            <a href="https://wa.me/5511986353603?text=Olá! Gostaria de mais informações sobre os serviços da DESPACHANTE FALCÃO." 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-yellow-500 to-yellow-400 text-blue-900 px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg hover:from-yellow-400 hover:to-yellow-300 transition duration-300 shadow-xl transform hover:scale-105">
+                               class="inline-block px-6 md:px-8 py-3 md:py-4 rounded-xl font-bold text-base md:text-lg neon-button text-white">
                                 💬 Fale Conosco
                             </a>
                         </div>
@@ -227,85 +278,85 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl shadow-lg text-center border border-blue-200 hover:border-blue-300" onclick="showMenu('renovacao')">
-                        <div class="bg-gradient-to-br from-blue-600 to-blue-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div class="service-card p-6 rounded-xl shadow-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);" onclick="showMenu('renovacao')">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);">
                             <span class="text-2xl">🔄</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-blue-800 mb-2">Renovação CNH</h3>
-                        <p class="text-blue-600 text-sm">Renove sua carteira com facilidade</p>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Renovação CNH</h3>
+                        <p class="text-sm" style="color: var(--chrome-light);">Renove sua carteira com facilidade</p>
                     </div>
 
-                    <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl shadow-lg text-center border border-green-200 hover:border-green-300" onclick="showMenu('licenciamento')">
-                        <div class="bg-gradient-to-br from-green-600 to-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div class="service-card p-6 rounded-xl shadow-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);" onclick="showMenu('licenciamento')">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, var(--neon-yellow) 0%, #cc9900 100%);">
                             <span class="text-2xl">📋</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-green-800 mb-2">Licenciamento</h3>
-                        <p class="text-green-600 text-sm">Licencie seu veículo rapidamente</p>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Licenciamento</h3>
+                        <p class="text-sm" style="color: var(--chrome-light);">Licencie seu veículo rapidamente</p>
                     </div>
 
-                    <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl shadow-lg text-center border border-purple-200 hover:border-purple-300" onclick="showMenu('primeira-habilitacao')">
-                        <div class="bg-gradient-to-br from-purple-600 to-purple-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div class="service-card p-6 rounded-xl shadow-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);" onclick="showMenu('primeira-habilitacao')">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #9900ff 0%, #6600cc 100%);">
                             <span class="text-2xl">🆕</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-purple-800 mb-2">Primeira CNH</h3>
-                        <p class="text-purple-600 text-sm">Tire sua primeira habilitação</p>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Primeira CNH</h3>
+                        <p class="text-sm" style="color: var(--chrome-light);">Tire sua primeira habilitação</p>
                     </div>
 
-                    <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl shadow-lg text-center border border-orange-200 hover:border-orange-300" onclick="showMenu('consultas')">
-                        <div class="bg-gradient-to-br from-orange-600 to-orange-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <div class="service-card p-6 rounded-xl shadow-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);" onclick="showMenu('consultas')">
+                        <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg" style="background: linear-gradient(135deg, #ff6600 0%, #cc5200 100%);">
                             <span class="text-2xl">🔍</span>
                         </div>
-                        <h3 class="text-xl font-semibold text-orange-800 mb-2">Consultas</h3>
-                        <p class="text-orange-600 text-sm">Verifique pontos e multas</p>
+                        <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Consultas</h3>
+                        <p class="text-sm" style="color: var(--chrome-light);">Verifique pontos e multas</p>
                     </div>
                 </div>
 
-                <div class="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl shadow-2xl p-8 mb-8 overflow-hidden">
+                <div class="relative rounded-3xl shadow-2xl p-8 mb-8 overflow-hidden" style="background: linear-gradient(135deg, rgba(26, 26, 26, 0.05) 0%, rgba(192, 192, 192, 0.1) 100%); border: 2px solid var(--chrome-light);">
                     <div class="relative">
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent mb-8 text-center">📥 Central de Downloads</h2>
+                        <h2 class="text-3xl font-bold mb-8 text-center" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">📥 Central de Downloads</h2>
                         
                         <div class="mb-8">
-                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                                <span class="bg-blue-100 p-2 rounded-lg mr-3">📋</span>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center" style="color: var(--chrome-dark);">
+                                <span class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);">📋</span>
                                 Formulários Gerais
                             </h3>
                             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl text-center border border-blue-200 hover:border-blue-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">📄</div>
-                                    <h4 class="font-bold text-blue-800 mb-3">Formulário Renovação CNH</h4>
-                                    <a href="./documentos/Formulário Renovação CNH.pdf" download="Formulário Renovação CNH.pdf" class="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl text-sm hover:from-blue-700 hover:to-blue-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Formulário Renovação CNH</h4>
+                                    <a href="./documentos/Formulário Renovação CNH.pdf" download="Formulário Renovação CNH.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl text-center border border-green-200 hover:border-green-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">📋</div>
-                                    <h4 class="font-bold text-green-800 mb-3">Checklist Documentos</h4>
-                                    <a href="./documentos/checklist-documentos.pdf" download="checklist-documentos.pdf" class="inline-block bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-xl text-sm hover:from-green-700 hover:to-green-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Checklist Documentos</h4>
+                                    <a href="./documentos/checklist-documentos.pdf" download="checklist-documentos.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-xl text-center border border-orange-200 hover:border-orange-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">♿</div>
-                                    <h4 class="font-bold text-orange-800 mb-3">Formulário CNH PCD</h4>
-                                    <a href="./documentos/Formulário CNH PCD.pdf" download="Formulário CNH PCD.pdf" class="inline-block bg-gradient-to-r from-orange-600 to-orange-700 text-white px-6 py-3 rounded-xl text-sm hover:from-orange-700 hover:to-orange-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Formulário CNH PCD</h4>
+                                    <a href="./documentos/Formulário CNH PCD.pdf" download="Formulário CNH PCD.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-xl text-center border border-red-200 hover:border-red-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">🔍</div>
-                                    <h4 class="font-bold text-red-800 mb-3">Guia de Consultas</h4>
-                                    <a href="./Guia de Consultas.pdf" download="Guia de Consultas.pdf" class="inline-block bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl text-sm hover:from-red-700 hover:to-red-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Guia de Consultas</h4>
+                                    <a href="./Guia de Consultas.pdf" download="Guia de Consultas.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl text-center border border-teal-200 hover:border-teal-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">💰</div>
-                                    <h4 class="font-bold text-teal-800 mb-3">Tabela de Preços</h4>
-                                    <a href="./documentos/Tabela de Preços.pdf" download="Tabela de Preços.pdf" class="inline-block bg-gradient-to-r from-teal-600 to-teal-700 text-white px-6 py-3 rounded-xl text-sm hover:from-teal-700 hover:to-teal-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Tabela de Preços</h4>
+                                    <a href="./documentos/Tabela de Preços.pdf" download="Tabela de Preços.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -313,47 +364,47 @@
                         </div>
 
                         <div>
-                            <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                                <span class="bg-purple-100 p-2 rounded-lg mr-3">📝</span>
+                            <h3 class="text-2xl font-bold mb-6 flex items-center" style="color: var(--chrome-dark);">
+                                <span class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, #9900ff 0%, #6600cc 100%);">📝</span>
                                 Requerimentos e Declarações
                             </h3>
                             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl text-center border border-purple-200 hover:border-purple-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">📝</div>
-                                    <h4 class="font-bold text-purple-800 mb-3">Requerimento Transferência</h4>
-                                    <a href="./documentos/Requerimento Transferência.pdf" download="Requerimento Transferência.pdf" class="inline-block bg-gradient-to-r from-purple-600 to-purple-700 text-white px-6 py-3 rounded-xl text-sm hover:from-purple-700 hover:to-purple-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Requerimento Transferência</h4>
+                                    <a href="./documentos/Requerimento Transferência.pdf" download="Requerimento Transferência.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-6 rounded-xl text-center border border-indigo-200 hover:border-indigo-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">✅</div>
-                                    <h4 class="font-bold text-indigo-800 mb-3">Carta de Anuência</h4>
-                                    <a href="./documentos/C_Anuencia.pdf" download="C_Anuencia.pdf" class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-xl text-sm hover:from-indigo-700 hover:to-indigo-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Carta de Anuência</h4>
+                                    <a href="./documentos/C_Anuencia.pdf" download="C_Anuencia.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl text-center border border-yellow-200 hover:border-yellow-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">⚠️</div>
-                                    <h4 class="font-bold text-yellow-800 mb-3">Declaração de Perda</h4>
-                                    <a href="./documentos/Declaração de Perda.pdf" download="Declaração de Perda.pdf" class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-xl text-sm hover:from-yellow-700 hover:to-yellow-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Declaração de Perda</h4>
+                                    <a href="./documentos/Declaração de Perda.pdf" download="Declaração de Perda.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl text-center border border-pink-200 hover:border-pink-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">🔧</div>
-                                    <h4 class="font-bold text-pink-800 mb-3">Requerimento Motor</h4>
-                                    <a href="./documentos/R_Motor.pdf" download="R_Motor.pdf" class="inline-block bg-gradient-to-r from-pink-600 to-pink-700 text-white px-6 py-3 rounded-xl text-sm hover:from-pink-700 hover:to-pink-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Requerimento Motor</h4>
+                                    <a href="./documentos/R_Motor.pdf" download="R_Motor.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
 
-                                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-xl text-center border border-cyan-200 hover:border-cyan-300 transition-all duration-300 hover:shadow-lg">
+                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="text-4xl mb-3">🔄</div>
-                                    <h4 class="font-bold text-cyan-800 mb-3">Req. Transformação</h4>
-                                    <a href="./documentos/Req_Transformacao.pdf" download="Req_Transformacao.pdf" class="inline-block bg-gradient-to-r from-cyan-600 to-cyan-700 text-white px-6 py-3 rounded-xl text-sm hover:from-cyan-700 hover:to-cyan-800 transition duration-300 shadow-lg transform hover:scale-105">
+                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Req. Transformação</h4>
+                                    <a href="./documentos/Req_Transformacao.pdf" download="Req_Transformacao.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
                                         📥 Download PDF
                                     </a>
                                 </div>
@@ -382,10 +433,10 @@
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• CRLV (Certificado de Registro)</li>
                                     <li>• Comprovante de pagamento do IPVA</li>
                                     <li>• Comprovante do seguro obrigatório</li>
@@ -393,29 +444,11 @@
                                     <li>• CPF do proprietário</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores</h3>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Licenciamento</span>
-                                        <span class="font-semibold text-blue-800">R$ 169,97</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-blue-800">R$ 80,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-green-800">Total</span>
-                                        <span class="font-semibold text-green-800">R$ 249,97</span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
-                        <div class="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-green-800 mb-3">✅ Processo Inclui:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                        <div class="p-6 mb-8" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border-left: 4px solid var(--neon-red);">
+                            <h3 class="text-lg font-semibold mb-3" style="color: var(--chrome-dark);">✅ Processo Inclui:</h3>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm" style="color: var(--chrome-light);">
                                 <ul class="space-y-2">
                                     <li>• Verificação de pendências</li>
                                     <li>• Pagamento das taxas</li>
@@ -432,7 +465,7 @@
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer o licenciamento do meu veículo. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 📋 Solicitar Licenciamento
                             </a>
                         </div>
@@ -444,25 +477,25 @@
         <div id="transferencia" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #9900ff 0%, #6600cc 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Transferência de Veículo</h1>
-                                <p class="text-purple-100 text-lg">Transfira a propriedade com segurança</p>
+                                <h1 class="text-3xl font-bold text-white">Transferência de Veículo</h1>
+                                <p class="text-white/80 text-lg">Transfira a propriedade com segurança</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
                         <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-purple-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-purple-800 mb-4">📋 Documentos do Vendedor</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos do Vendedor</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• CRLV original</li>
                                     <li>• RG e CPF originais</li>
                                     <li>• Comprovante de residência</li>
@@ -470,9 +503,9 @@
                                 </ul>
                             </div>
 
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos do Comprador</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos do Comprador</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• RG e CPF originais</li>
                                     <li>• Comprovante de residência atualizado</li>
                                     <li>• CNH válida (categoria compatível)</li>
@@ -480,36 +513,10 @@
                             </div>
                         </div>
 
-                        <div class="service-card bg-green-50 p-6 rounded-lg mb-8">
-                            <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores</h3>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Transferência</span>
-                                        <span class="font-semibold text-green-800">R$ 285,05</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Vistoria ECV</span>
-                                        <span class="font-semibold text-green-800">R$ 120,00</span>
-                                    </div>
-                                </div>
-                                <div class="space-y-2">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-green-800">R$ 200,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-green-800">Total</span>
-                                        <span class="font-semibold text-green-800">R$ 605,05</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer a transferência de um veículo. Podem me orientar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer a transferência do meu veículo. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-purple-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 🔄 Solicitar Transferência
                             </a>
                         </div>
@@ -521,53 +528,35 @@
         <div id="ipva" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-yellow-600 to-yellow-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, var(--neon-yellow) 0%, #cc9900 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">IPVA</h1>
-                                <p class="text-yellow-100 text-lg">Consulta e pagamento do IPVA</p>
+                                <h1 class="text-3xl font-bold text-white">IPVA</h1>
+                                <p class="text-white/80 text-lg">Consulta e pagamento do IPVA</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-yellow-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-yellow-800 mb-4">📋 Para Consulta</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Para Consulta</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• Placa do veículo</li>
                                     <li>• Renavam</li>
                                     <li>• CPF do proprietário</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Nossos Serviços</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Consulta IPVA</span>
-                                        <span class="font-semibold text-blue-800">R$ 15,00</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Emissão de Guia</span>
-                                        <span class="font-semibold text-blue-800">R$ 25,00</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Parcelamento</span>
-                                        <span class="font-semibold text-blue-800">R$ 35,00</span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
-                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-yellow-800 mb-3">💡 Informações Importantes:</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                        <div class="p-6 mb-8" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border-left: 4px solid var(--neon-yellow);">
+                            <h3 class="text-lg font-semibold mb-3" style="color: var(--chrome-dark);">💡 Informações Importantes:</h3>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm" style="color: var(--chrome-light);">
                                 <ul class="space-y-2">
                                     <li>• IPVA pode ser parcelado em até 5x</li>
                                     <li>• Desconto de 3% para pagamento à vista</li>
@@ -575,8 +564,8 @@
                                 </ul>
                                 <ul class="space-y-2">
                                     <li>• Consulta gratuita no site do DETRAN</li>
-                                    <li>• Multa por atraso: 0,33% ao dia</li>
-                                    <li>• Necessário para licenciamento</li>
+                                    <li>• Pagamento em bancos ou lotéricas</li>
+                                    <li>• Multas por atraso</li>
                                 </ul>
                             </div>
                         </div>
@@ -584,8 +573,8 @@
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com o IPVA do meu veículo. Podem me orientar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-yellow-700 hover:to-yellow-600 transition duration-300 shadow-lg">
-                                💰 Consultar IPVA 
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
+                                💰 Consultar IPVA
                             </a>
                         </div>
                     </div>
@@ -596,64 +585,30 @@
         <div id="vistoria" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #ff6600 0%, #cc5200 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,...
                                     <path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Vistoria e Inspeção</h1>
-                                <p class="text-indigo-100 text-lg">Vistorias para transferência e regularização</p>
+                                <h1 class="text-3xl font-bold text-white">Vistoria e Inspeção</h1>
+                                <p class="text-white/80 text-lg">Vistorias para transferência e regularização</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-indigo-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-indigo-800 mb-4">✅ Tipos de Vistoria</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">✅ Tipos de Vistoria</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• Vistoria de Transferência</li>
                                     <li>• Vistoria para 2ª Via do CRV</li>
                                     <li>• Vistoria para Mudança de Característica</li>
                                     <li>• Inspeção de Segurança Veicular</li>
-                                </ul>
-                            </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Vistoria para Transferência</span>
-                                        <span class="font-semibold text-blue-800">R$ 120,00</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-blue-800">R$ 50,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-indigo-800">Total</span>
-                                        <span class="font-semibold text-indigo-800">R$ 170,00</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-indigo-50 border-l-4 border-indigo-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-indigo-800 mb-3">🔍 Requisitos da Vistoria</h3>
-                            <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <ul class="space-y-2">
-                                    <li>• Veículo em bom estado de conservação</li>
-                                    <li>• Documentação do veículo em dia</li>
-                                    <li>• Vidros e lacres originais</li>
-                                </ul>
-                                <ul class="space-y-2">
-                                    <li>• Pneus em boas condições</li>
-                                    <li>• Placas e iluminação em ordem</li>
-                                    <li>• Chassi e motor sem adulterações</li>
                                 </ul>
                             </div>
                         </div>
@@ -661,7 +616,7 @@
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma vistoria veicular. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-indigo-600 to-indigo-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-indigo-700 hover:to-indigo-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 🔍 Solicitar Vistoria
                             </a>
                         </div>
@@ -673,61 +628,36 @@
         <div id="renovacao" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Renovação da CNH</h1>
-                                <p class="text-blue-100 text-lg">Renove sua carteira com segurança e rapidez</p>
+                                <h1 class="text-3xl font-bold text-white">Renovação da CNH</h1>
+                                <p class="text-white/80 text-lg">Renove sua carteira com segurança e rapidez</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• CNH antiga (original)</li>
                                     <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores e Prazos</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa do DETRAN</span>
-                                        <span class="font-semibold text-green-800">R$ 133,17</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-green-800">R$ 120,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-blue-800">Total</span>
-                                        <span class="font-semibold text-blue-800">R$ 253,17</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-blue-800 mb-3">✅ Como Funciona:</h3>
-                            <p class="text-sm text-gray-700">
-                                Realizamos a pré-inscrição online, agendamos o exame médico e psicológico, e acompanhamos a emissão da sua nova CNH. Você só precisa comparecer nos exames.
-                            </p>
                         </div>
 
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso renovar minha CNH. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 🔄 Solicitar Renovação
                             </a>
                         </div>
@@ -739,62 +669,53 @@
         <div id="primeira-habilitacao" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-purple-600 to-purple-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #9900ff 0%, #6600cc 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Primeira Habilitação</h1>
-                                <p class="text-purple-100 text-lg">Sua jornada para a liberdade começa aqui</p>
+                                <h1 class="text-3xl font-bold text-white">Primeira Habilitação</h1>
+                                <p class="text-white/80 text-lg">Sua jornada para a liberdade começa aqui</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-purple-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-purple-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
                                     <li>• Exames médico e psicotécnico</li>
                                 </ul>
                             </div>
+                        </div>
 
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Processo</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxas do DETRAN</span>
-                                        <span class="font-semibold text-blue-800">R$ 213,24</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-blue-800">R$ 150,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-purple-800">Total</span>
-                                        <span class="font-semibold text-purple-800">R$ 363,24</span>
-                                    </div>
-                                </div>
+                        <div class="p-6 mb-8" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border-left: 4px solid #9900ff;">
+                            <h3 class="text-lg font-semibold mb-3" style="color: var(--chrome-dark);">📝 Processo Inclui:</h3>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm" style="color: var(--chrome-light);">
+                                <ul class="space-y-2">
+                                    <li>• Agendamento de exames</li>
+                                    <li>• Aulas teóricas e práticas</li>
+                                    <li>• Processo no DETRAN</li>
+                                </ul>
+                                <ul class="space-y-2">
+                                    <li>• Acompanhamento completo</li>
+                                    <li>• Emissão da CNH provisória</li>
+                                    <li>• Entrega da CNH definitiva</li>
+                                </ul>
                             </div>
                         </div>
 
-                        <div class="bg-purple-50 border-l-4 border-purple-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-purple-800 mb-3">✅ Como Funciona:</h3>
-                            <p class="text-sm text-gray-700">
-                                Facilitamos o processo de inscrição no curso teórico e nas aulas práticas. Acompanhamos cada etapa para que você se concentre apenas em aprender.
-                            </p>
-                        </div>
-
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso tirar minha primeira habilitação. Podem me ajudar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Quero tirar minha primeira CNH. Podem me orientar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-purple-600 to-purple-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-purple-700 hover:to-purple-600 transition duration-300 shadow-lg">
-                                🆕 Solicitar Habilitação
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
+                                🆕 Iniciar Processo
                             </a>
                         </div>
                     </div>
@@ -805,54 +726,36 @@
         <div id="mudanca-categoria" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Mudança de Categoria</h1>
-                                <p class="text-blue-100 text-lg">Evolua sua CNH para novas categorias</p>
+                                <h1 class="text-3xl font-bold text-white">Mudança de Categoria</h1>
+                                <p class="text-white/80 text-lg">Evolua sua CNH para novas categorias</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• CNH atual (original)</li>
                                     <li>• RG e CPF (originais)</li>
                                     <li>• Comprovante de residência atualizado</li>
                                     <li>• Certificado de curso especializado (se necessário)</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-green-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-green-800 mb-4">💰 Valores e Prazos</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa do DETRAN</span>
-                                        <span class="font-semibold text-green-800">R$ 150,00</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-green-800">R$ 120,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-blue-800">Total</span>
-                                        <span class="font-semibold text-blue-800">R$ 270,00</span>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
-                        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-blue-800 mb-3">✅ Como Funciona:</h3>
-                            <p class="text-sm text-gray-700">
+                        <div class="p-6 mb-8" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border-left: 4px solid #0066ff;">
+                            <h3 class="text-lg font-semibold mb-3" style="color: var(--chrome-dark);">✅ Como Funciona:</h3>
+                            <p class="text-sm" style="color: var(--chrome-light);">
                                 Auxiliamos em todo o processo, desde a inscrição e agendamento de exames até a emissão da nova CNH. Ideal para quem busca novas oportunidades profissionais.
                             </p>
                         </div>
@@ -860,7 +763,7 @@
                         <div class="text-center">
                             <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda para mudar a categoria da minha CNH. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-blue-600 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 📈 Solicitar Mudança
                             </a>
                         </div>
@@ -872,61 +775,36 @@
         <div id="segunda-via" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-red-600 to-red-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #ff0040 0%, #cc0033 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Segunda Via da CNH</h1>
-                                <p class="text-red-100 text-lg">Obtenha sua CNH rapidamente em caso de perda ou roubo</p>
+                                <h1 class="text-3xl font-bold text-white">Segunda Via da CNH</h1>
+                                <p class="text-white/80 text-lg">Substitua sua carteira perdida ou danificada</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-red-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-red-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• RG e CPF (originais)</li>
-                                    <li>• Boletim de Ocorrência (em caso de roubo)</li>
                                     <li>• Comprovante de residência atualizado</li>
+                                    <li>• Boletim de ocorrência (caso de roubo/furto)</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Prazos</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa do DETRAN</span>
-                                        <span class="font-semibold text-blue-800">R$ 133,17</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-blue-800">R$ 120,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-red-800">Total</span>
-                                        <span class="font-semibold text-red-800">R$ 133,17</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-red-800 mb-3">✅ Como Funciona:</h3>
-                            <p class="text-sm text-gray-700">
-                                Cuidamos de todo o processo de solicitação da segunda via da sua CNH, desde a emissão das guias até a entrega do documento.
-                            </p>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso da segunda via da minha CNH. Podem me ajudar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer a segunda via da minha CNH. Podem me ajudar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 📄 Solicitar Segunda Via
                             </a>
                         </div>
@@ -934,65 +812,41 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="pcd" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-teal-600 to-teal-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #00cc99 0%, #009966 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">CNH PCD</h1>
-                                <p class="text-teal-100 text-lg">Facilitamos o processo para condutores com deficiência</p>
+                                <h1 class="text-3xl font-bold text-white">CNH PCD</h1>
+                                <p class="text-white/80 text-lg">Facilitamos o processo para condutores com deficiência</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
-                        <div class="grid md:grid-cols-2 gap-8 mb-8">
-                            <div class="service-card bg-teal-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-teal-800 mb-4">📋 Documentos Necessários</h3>
-                                <ul class="space-y-2 text-gray-700 text-sm">
+                        <div class="mb-8">
+                            <div class="service-card p-6 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4" style="color: var(--chrome-dark);">📋 Documentos Necessários</h3>
+                                <ul class="space-y-2 text-sm" style="color: var(--chrome-light);">
                                     <li>• RG e CPF (originais)</li>
-                                    <li>• Laudo médico com CID</li>
-                                    <li>• CNH atual (se houver)</li>
+                                    <li>• Comprovante de residência atualizado</li>
+                                    <li>• Laudo médico de deficiência</li>
+                                    <li>• CNH anterior (se houver)</li>
                                 </ul>
                             </div>
-
-                            <div class="service-card bg-blue-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold text-blue-800 mb-4">💰 Valores e Isenções</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa do DETRAN</span>
-                                        <span class="font-semibold text-blue-800">R$ 133,17</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-700">Taxa de Serviço</span>
-                                        <span class="font-semibold text-blue-800">R$ 150,00</span>
-                                    </div>
-                                    <div class="flex justify-between text-lg">
-                                        <span class="font-semibold text-teal-800">Total</span>
-                                        <span class="font-semibold text-teal-800">R$ 283,17</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-teal-50 border-l-4 border-teal-400 p-6 mb-8">
-                            <h3 class="text-lg font-semibold text-teal-800 mb-3">✅ Como Funciona:</h3>
-                            <p class="text-sm text-gray-700">
-                                Assessoramos você para obter a CNH PCD, incluindo a preparação de laudos, agendamento de exames e solicitação das isenções fiscais na compra de veículos.
-                            </p>
                         </div>
 
                         <div class="text-center">
-                            <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda para tirar a CNH PCD. Podem me ajudar?" 
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso de ajuda com CNH PCD. Podem me orientar?" 
                                target="_blank" 
-                               class="inline-block bg-gradient-to-r from-teal-600 to-teal-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-teal-700 hover:to-teal-600 transition duration-300 shadow-lg">
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
                                 ♿ Solicitar CNH PCD
                             </a>
                         </div>
@@ -1004,51 +858,51 @@
         <div id="consultas" class="menu-content">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                    <div class="bg-gradient-to-r from-orange-600 to-orange-500 text-white p-8">
+                    <div class="p-8" style="background: linear-gradient(135deg, #ff6600 0%, #cc5200 100%);">
                         <div class="flex items-center space-x-4">
                             <div class="bg-white/20 p-3 rounded-lg">
-                                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
                                 </svg>
                             </div>
                             <div>
-                                <h1 class="text-3xl font-bold">Consultas e Pesquisas</h1>
-                                <p class="text-orange-100 text-lg">Consulte pendências de veículos e CNH</p>
+                                <h1 class="text-3xl font-bold text-white">Consultas e Pesquisas</h1>
+                                <p class="text-white/80 text-lg">Consulte pendências de veículos e CNH</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="p-8">
                         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                            <div class="service-card bg-orange-50 p-6 rounded-lg text-center">
+                            <div class="service-card p-6 rounded-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                 <div class="text-4xl mb-3">🚗</div>
-                                <h3 class="text-xl font-semibold text-orange-800 mb-2">Veículo</h3>
-                                <p class="text-gray-700 text-sm mb-4">Consulte débitos, multas e restrições</p>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Veículo</h3>
+                                <p class="text-sm mb-4" style="color: var(--chrome-light);">Consulte débitos, multas e restrições</p>
                                 <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma consulta veicular. Podem me ajudar?" 
                                    target="_blank"
-                                   class="inline-block bg-gradient-to-r from-orange-600 to-orange-500 text-white px-6 py-3 rounded-lg text-sm hover:from-orange-700 hover:to-orange-600 transition duration-300 shadow-lg">
+                                   class="inline-block px-6 py-3 rounded-lg text-sm neon-button text-white">
                                     Consultar
                                 </a>
                             </div>
 
-                            <div class="service-card bg-yellow-50 p-6 rounded-lg text-center">
+                            <div class="service-card p-6 rounded-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                 <div class="text-4xl mb-3">🆔</div>
-                                <h3 class="text-xl font-semibold text-yellow-800 mb-2">CNH</h3>
-                                <p class="text-gray-700 text-sm mb-4">Verifique sua pontuação, multas e situação</p>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">CNH</h3>
+                                <p class="text-sm mb-4" style="color: var(--chrome-light);">Verifique sua pontuação, multas e situação</p>
                                 <a href="https://wa.me/5511986353603?text=Olá! Preciso fazer uma consulta da minha CNH. Podem me ajudar?" 
                                    target="_blank"
-                                   class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-500 text-white px-6 py-3 rounded-lg text-sm hover:from-yellow-700 hover:to-yellow-600 transition duration-300 shadow-lg">
+                                   class="inline-block px-6 py-3 rounded-lg text-sm neon-button text-white">
                                     Consultar
                                 </a>
                             </div>
 
-                            <div class="service-card bg-red-50 p-6 rounded-lg text-center">
+                            <div class="service-card p-6 rounded-lg text-center" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                 <div class="text-4xl mb-3">📄</div>
-                                <h3 class="text-xl font-semibold text-red-800 mb-2">Documentos</h3>
-                                <p class="text-gray-700 text-sm mb-4">Acompanhe o status do seu processo</p>
+                                <h3 class="text-xl font-semibold mb-2" style="color: var(--chrome-dark);">Documentos</h3>
+                                <p class="text-sm mb-4" style="color: var(--chrome-light);">Acompanhe o status do seu processo</p>
                                 <a href="https://wa.me/5511986353603?text=Olá! Preciso consultar o andamento do meu processo. Podem me ajudar?" 
                                    target="_blank"
-                                   class="inline-block bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-3 rounded-lg text-sm hover:from-red-700 hover:to-red-600 transition duration-300 shadow-lg">
+                                   class="inline-block px-6 py-3 rounded-lg text-sm neon-button text-white">
                                     Consultar
                                 </a>
                             </div>
@@ -1063,23 +917,23 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Tela de Login/Cadastro -->
                 <div id="login-screen" class="bg-white rounded-xl shadow-lg overflow-hidden">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-8 text-center">
+                    <div class="p-8 text-center" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);">
                         <div class="bg-white/20 p-3 rounded-lg inline-block mb-4">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
                             </svg>
                         </div>
-                        <h1 class="text-3xl font-bold mb-2">Área do Cliente</h1>
-                        <p class="text-blue-100">Acesse sua área pessoal para gerenciar seus documentos</p>
+                        <h1 class="text-3xl font-bold mb-2 text-white">Área do Cliente</h1>
+                        <p class="text-white/80">Acesse sua área pessoal para gerenciar seus documentos</p>
                     </div>
 
                     <div class="p-8">
                         <div class="flex justify-center mb-8">
-                            <div class="bg-gray-100 p-1 rounded-lg">
-                                <button id="login-tab" onclick="showTab('login')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white">
+                            <div class="p-1 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(232, 232, 232, 0.3) 100%);">
+                                <button id="login-tab" onclick="showTab('login')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 neon-button text-white">
                                     Entrar
                                 </button>
-                                <button id="register-tab" onclick="showTab('register')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600">
+                                <button id="register-tab" onclick="showTab('register')" class="px-6 py-2 rounded-md font-medium transition-all duration-300" style="color: var(--chrome-light);">
                                     Cadastrar
                                 </button>
                             </div>
@@ -1089,19 +943,21 @@
                         <div id="login-form" class="tab-content">
                             <form onsubmit="handleLogin(event)" class="space-y-6">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Email</label>
                                     <input type="email" id="login-email" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="seu@email.com">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Senha</label>
                                     <input type="password" id="login-password" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="Sua senha">
                                 </div>
                                 <button type="submit" 
-                                        class="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-600 transition duration-300 shadow-lg">
+                                        class="w-full py-3 px-6 rounded-lg font-semibold transition duration-300 shadow-lg neon-button text-white">
                                     🔐 Entrar
                                 </button>
                             </form>
@@ -1112,44 +968,50 @@
                             <form onsubmit="handleRegister(event)" class="space-y-6">
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Nome Completo</label>
                                         <input type="text" id="register-name" required 
-                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                               style="border-color: var(--chrome-light);"
                                                placeholder="Seu nome completo">
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">CPF</label>
+                                        <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">CPF</label>
                                         <input type="text" id="register-cpf" required 
-                                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                               style="border-color: var(--chrome-light);"
                                                placeholder="000.000.000-00" maxlength="14">
                                     </div>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Email</label>
                                     <input type="email" id="register-email" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="seu@email.com">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Telefone</label>
                                     <input type="tel" id="register-phone" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="(11) 99999-9999">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Senha</label>
                                     <input type="password" id="register-password" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="Mínimo 6 caracteres" minlength="6">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar Senha</label>
+                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Confirmar Senha</label>
                                     <input type="password" id="register-confirm-password" required 
-                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-300"
+                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
+                                           style="border-color: var(--chrome-light);"
                                            placeholder="Confirme sua senha">
                                 </div>
                                 <button type="submit" 
-                                        class="w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-green-600 transition duration-300 shadow-lg">
+                                        class="w-full py-3 px-6 rounded-lg font-semibold transition duration-300 shadow-lg neon-button text-white">
                                     ✅ Criar Conta
                                 </button>
                             </form>
@@ -1160,13 +1022,13 @@
                 <!-- Área Logada do Cliente -->
                 <div id="client-dashboard" class="hidden">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                        <div class="bg-gradient-to-r from-green-600 to-green-500 text-white p-6">
+                        <div class="p-6" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);">
                             <div class="flex justify-between items-center">
                                 <div>
-                                    <h1 class="text-2xl font-bold">Bem-vindo, <span id="client-name">Cliente</span>!</h1>
-                                    <p class="text-green-100">Gerencie seus documentos e processos</p>
+                                    <h1 class="text-2xl font-bold text-white">Bem-vindo, <span id="client-name">Cliente</span>!</h1>
+                                    <p class="text-white/80">Gerencie seus documentos e processos</p>
                                 </div>
-                                <button onclick="logout()" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition duration-300">
+                                <button onclick="logout()" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition duration-300 text-white">
                                     🚪 Sair
                                 </button>
                             </div>
@@ -1175,20 +1037,20 @@
                         <div class="p-6">
                             <div class="grid md:grid-cols-2 gap-6 mb-8">
                                 <!-- Upload de Documentos -->
-                                <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                                <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="flex items-center mb-4">
-                                        <div class="bg-blue-600 p-2 rounded-lg mr-3">
+                                        <div class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);">
                                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
                                             </svg>
                                         </div>
-                                        <h3 class="text-xl font-semibold text-blue-800">Enviar Documentos</h3>
+                                        <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Enviar Documentos</h3>
                                     </div>
-                                    <p class="text-gray-700 mb-4">Envie seus documentos de forma segura</p>
+                                    <p class="mb-4" style="color: var(--chrome-light);">Envie seus documentos de forma segura</p>
                                     
-                                    <div class="bg-blue-100 border border-blue-300 rounded-lg p-4 mb-4">
-                                        <h4 class="font-semibold text-blue-800 mb-2">📋 Como funciona:</h4>
-                                        <ol class="text-sm text-blue-700 space-y-1">
+                                    <div class="rounded-lg p-4 mb-4" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(232, 232, 232, 0.3) 100%); border: 2px solid var(--chrome-light);">
+                                        <h4 class="font-semibold mb-2" style="color: var(--chrome-dark);">📋 Como funciona:</h4>
+                                        <ol class="text-sm space-y-1" style="color: var(--chrome-light);">
                                             <li>1. Clique para adicionar arquivos (pode repetir várias vezes)</li>
                                             <li>2. Navegue em diferentes pastas e adicione mais arquivos</li>
                                             <li>3. Visualize todos os arquivos selecionados</li>
@@ -1197,81 +1059,81 @@
                                         </ol>
                                     </div>
                                     
-                                    <div class="bg-yellow-100 border border-yellow-300 rounded-lg p-3 mb-4">
-                                        <p class="text-sm text-yellow-800">
+                                    <div class="rounded-lg p-3 mb-4" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(204, 153, 0, 0.3) 100%); border: 2px solid var(--neon-yellow);">
+                                        <p class="text-sm" style="color: var(--chrome-dark);">
                                             <strong>⚠️ Importante:</strong> Os dados ficam salvos apenas neste dispositivo. 
                                             Se fez cadastro em outro dispositivo, precisa se cadastrar novamente aqui.
                                         </p>
                                     </div>
                                     
-                                    <div class="bg-orange-100 border border-orange-300 rounded-lg p-3 mb-4">
-                                        <p class="text-sm text-orange-800">
+                                    <div class="rounded-lg p-3 mb-4" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.2) 0%, rgba(204, 82, 0, 0.3) 100%); border: 2px solid #ff6600;">
+                                        <p class="text-sm" style="color: var(--chrome-dark);">
                                             <strong>📎 Como funciona:</strong><br>
                                             1. Selecione os arquivos que deseja enviar<br>
-                                            2. Clique "Enviar Agora" para notificar a PAULISTADOCS<br>
+                                            2. Clique "Enviar Agora" para notificar a DESPACHANTE FALCÃO<br>
                                             3. Um email será enviado com a lista dos seus arquivos<br>
-                                            4. A PAULISTADOCS entrará em contato para solicitar os documentos<br>
+                                            4. A DESPACHANTE FALCÃO entrará em contato para solicitar os documentos<br>
                                             5. Você poderá enviar por WhatsApp, email ou entregar pessoalmente
                                         </p>
                                     </div>
                                     
-                                    <div class="border-2 border-dashed border-blue-300 rounded-lg p-6 text-center">
+                                    <div class="border-2 border-dashed rounded-lg p-6 text-center" style="border-color: var(--chrome-light);">
                                         <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="hidden" onchange="addFilesToQueue(event)">
                                         <label for="file-upload" class="cursor-pointer">
                                             <div class="text-4xl mb-2">📁</div>
-                                            <p class="text-blue-600 font-medium">Clique para adicionar arquivos</p>
-                                            <p class="text-sm text-gray-500">PDF, JPG, PNG, DOC (máx. 10MB cada)</p>
+                                            <p class="font-medium" style="color: var(--neon-red);">Clique para adicionar arquivos</p>
+                                            <p class="text-sm" style="color: var(--chrome-light);">PDF, JPG, PNG, DOC (máx. 10MB cada)</p>
                                         </label>
                                     </div>
                                     
                                     <!-- Área de arquivos selecionados -->
                                     <div id="files-queue" class="hidden mt-4">
-                                        <h4 class="font-semibold text-blue-800 mb-3">📋 Arquivos Selecionados:</h4>
+                                        <h4 class="font-semibold mb-3" style="color: var(--chrome-dark);">📋 Arquivos Selecionados:</h4>
                                         <div id="files-list" class="space-y-2 mb-4 max-h-40 overflow-y-auto">
                                             <!-- Arquivos aparecerão aqui -->
                                         </div>
                                         <div class="flex gap-3">
-                                            <button onclick="sendAllFiles()" class="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300 font-medium">
+                                            <button onclick="sendAllFiles()" class="flex-1 py-2 px-4 rounded-lg transition duration-300 font-medium neon-button text-white">
                                                 📤 Enviar Agora (<span id="files-count">0</span> arquivos)
                                             </button>
-                                            <button onclick="clearAllFiles()" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-300">
+                                            <button onclick="clearAllFiles()" class="py-2 px-4 rounded-lg transition duration-300" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%); color: white;">
                                                 🗑️ Limpar
                                             </button>
                                         </div>
                                     </div>
                                     
                                     <div id="upload-progress" class="hidden mt-4">
-                                        <div class="bg-gray-200 rounded-full h-2">
-                                            <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                        <div class="rounded-full h-2" style="background: rgba(192, 192, 192, 0.3);">
+                                            <div id="progress-bar" class="h-2 rounded-full transition-all duration-300" style="width: 0%; background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);"></div>
                                         </div>
-                                        <p class="text-sm text-gray-600 mt-2">Enviando arquivos...</p>
+                                        <p class="text-sm mt-2" style="color: var(--chrome-light);">Enviando arquivos...</p>
                                     </div>
                                 </div>
 
                                 <!-- Meus Documentos -->
-                                <div class="bg-green-50 p-6 rounded-xl border border-green-200">
+                                <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
                                     <div class="flex items-center mb-4">
-                                        <div class="bg-green-600 p-2 rounded-lg mr-3">
+                                        <div class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--neon-yellow) 0%, #cc9900 100%);">
                                             <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
                                             </svg>
                                         </div>
-                                        <h3 class="text-xl font-semibold text-green-800">Meus Documentos</h3>
+                                        <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Meus Documentos</h3>
                                     </div>
-                                    <p class="text-gray-700 mb-4">Visualize seus documentos enviados</p>
+                                    <p class="mb-4" style="color: var(--chrome-light);">Visualize seus documentos enviados</p>
                                     <div id="documents-list" class="space-y-2">
-                                        <p class="text-gray-500 text-sm">Nenhum documento enviado ainda</p>
+                                        <p class="text-sm" style="color: var(--chrome-light);">Nenhum documento enviado ainda</p>
                                     </div>
-                                    <button onclick="refreshDocuments()" class="mt-4 w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+                                    <button onclick="refreshDocuments()" class="mt-4 w-full py-2 px-4 rounded-lg transition duration-300 neon-button text-white">
                                         🔄 Atualizar Lista
                                     </button>
                                 </div>
                             </div>
 
                             <!-- Status dos Processos -->
-                            <div class="bg-gray-50 p-6 rounded-xl">
-                                <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                                    <span class="bg-gray-600 p-2 rounded-lg mr-3">
+                            <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                                <h3 class="text-xl font-semibold mb-4 flex items-center" style="color: var(--chrome-dark);">
+                                    <span class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--chrome-dark) 0%, #333333 100%);">
                                         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
                                             <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
                                         </svg>
@@ -1279,9 +1141,9 @@
                                     Status dos Processos
                                 </h3>
                                 <div id="process-status" class="grid md:grid-cols-2 gap-4">
-                                    <div class="bg-white p-4 rounded-lg border">
+                                    <div class="p-4 rounded-lg border" style="background: white; border-color: var(--chrome-light);">
                                         <div class="flex items-center justify-between">
-                                            <span class="text-gray-700">Nenhum processo em andamento</span>
+                                            <span style="color: var(--chrome-light);">Nenhum processo em andamento</span>
                                             <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm">-</span>
                                         </div>
                                     </div>
@@ -1294,19 +1156,19 @@
         </div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8 text-center">
+    <footer class="py-8 text-center" style="background: var(--chrome-dark);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8">
                 <div>
-                    <h3 class="font-bold text-lg mb-4">PAULISTADOCS</h3>
-                    <p class="text-gray-400 text-sm">
+                    <h3 class="font-bold text-lg mb-4 text-white">DESPACHANTE FALCÃO</h3>
+                    <p class="text-sm" style="color: var(--chrome-light);">
                         Simplificando a sua vida, cuidando da sua documentação.
                     </p>
                 </div>
                 
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Contato</h3>
-                    <p class="text-gray-400 text-sm">
+                    <h3 class="font-bold text-lg mb-4 text-white">Contato</h3>
+                    <p class="text-sm" style="color: var(--chrome-light);">
                         Endereço: Rua dos Despachantes, 123 - Centro, São Paulo - SP<br>
                         Telefone: (11) 98635-3603<br>
                         Email: contato@paulistadocs.com
@@ -1314,14 +1176,14 @@
                 </div>
                 
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Redes Sociais</h3>
+                    <h3 class="font-bold text-lg mb-4 text-white">Redes Sociais</h3>
                     <div class="flex justify-center space-x-4">
-                        <a href="https://www.instagram.com/seu-perfil" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <a href="https://www.instagram.com/seu-perfil" target="_blank" class="transition duration-300" style="color: var(--chrome-light);">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.071 1.17.06 1.83.249 2.228.435.41.196.772.463 1.144.836.372.372.64.734.836 1.144.186.398.375 1.058.435 2.228.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.06 1.17-.249 1.83-.435 2.228-.196.41-.463.772-.836 1.144-.372.372-.734.64-1.144.836-.398.186-1.058.375-2.228.435-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.17-.06-1.83-.249-2.228-.435-.41-.196-.772-.463-1.144-.836-.372-.372-.64-.734-.836-1.144-.186-.398-.375-1.058-.435-2.228-.059-1.266-.071-1.646-.071-4.85s.012-3.584.071-4.85c.06-1.17.249-1.83.435-2.228.196-.41.463-.772.836-1.144.372-.372.734-.64 1.144-.836.398-.186 1.058-.375 2.228-.435 1.266-.059 1.646-.071 4.85-.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.28.06-2.132.259-2.735.497-.61.238-1.174.597-1.768 1.191-.593.594-.952 1.157-1.191 1.768-.238.603-.437 1.455-.497 2.735-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.06 1.28.259 2.132.497 2.735.238.61.597 1.174 1.191 1.768.594.593 1.157.952 1.768 1.191.603.238 1.455.437 2.735.497 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.28-.06 2.132-.259 2.735-.497.61-.238 1.174-.597 1.768-1.191.593-.594.952-1.157 1.191-1.768.238-.603.437-1.455.497-2.735.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.06-1.28-.259-2.132-.497-2.735-.238-.61-.597-1.174-1.191-1.768-.594-.593-1.157-.952-1.768-1.191-.603-.238-1.455-.437-2.735-.497-1.28-.058-1.688-.072-4.947-.072zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666z"/>
                             </svg>
                         </a>
-                        <a href="https://wa.me/5511986353603" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                        <a href="https://wa.me/5511986353603" target="_blank" class="transition duration-300" style="color: var(--chrome-light);">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c-5.461 0-9.914 4.453-9.914 9.914 0 1.954.568 3.861 1.644 5.568L2.12 21.88l4.408-1.284c1.696.969 3.596 1.472 5.472 1.472 5.461 0 9.914-4.453 9.914-9.914S17.461 2.163 12 2.163zm3.765 11.235c-.104.283-.64.544-1.164.636-.525.093-1.049.139-1.573.064-.525-.076-1.049-.247-1.573-.418-.525-.17-1.049-.441-1.573-.712-.525-.272-1.049-.544-1.573-.815-.525-.271-1.049-.542-1.573-.813-.524-.271-1.049-.543-1.573-.815-.525-.271-.979-.571-1.432-.907-.453-.337-.87-.71-1.272-1.127-.402-.416-.763-.895-1.08-1.43-.317-.535-.588-1.107-.817-1.716-.228-.609-.387-1.258-.475-1.928-.088-.669-.076-1.343.037-2.016.113-.674.33-1.33.65-1.936.32-.607.72-1.16 1.2-1.657.48-.497 1.053-.914 1.688-1.25.636-.337 1.34-.582 2.05-.733.71-.151 1.41-.219 2.08-.219h.03c.532 0 1.063.076 1.596.227.533.15.992.368 1.38.65.388.283.693.636.915.99.222.355.362.723.42 1.077.058.353.076.697.052 1.03-.024.335-.104.665-.24.99-.136.325-.325.64-.567.933-.243.293-.532.56-1.047.854-.515.293-1.03.565-1.545.836z"/>
                             </svg>
@@ -1329,8 +1191,8 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 border-t border-gray-700 pt-8 text-center">
-                <p>© 2024 PAULISTADOCS. Todos os direitos reservados.</p>
+            <div class="mt-8 pt-8 text-center" style="border-top: 1px solid var(--chrome-light);">
+                <p style="color: var(--chrome-light);"> 2024 DESPACHANTE FALCÃO. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
