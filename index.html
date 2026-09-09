@@ -135,7 +135,7 @@
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-3">
                     <div class="bg-white p-2 rounded-xl shadow-lg" style="border: 2px solid var(--neon-red);">
-                        <img src="https://raw.githubusercontent.com/paulistadocs/paulistadocs.github.io/main/logo.jpeg" 
+                        <img src="logo.jpeg" 
                              alt="DESPACHANTE FALCÃO Logo" 
                              class="w-12 h-12 object-contain"
                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -191,8 +191,8 @@
                         🔍 Consultas
                     </button>
                     
-                    <button onclick="showMenu('area-cliente')" class="menu-button px-4 py-2 rounded-lg font-medium transition duration-300 neon-button text-white">
-                        👤 Área do Cliente
+                    <button onclick="showMenu('videos')" class="menu-button font-medium transition duration-300" style="color: var(--chrome-silver);">
+                        🎥 Vídeos
                     </button>
                 </nav>
                 
@@ -245,8 +245,8 @@
                     <button onclick="showMenu('consultas'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md mobile-menu-item">
                         🔍 Consultas
                     </button>
-                    <button onclick="showMenu('area-cliente'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md font-medium neon-button text-white">
-                        👤 Área do Cliente
+                    <button onclick="showMenu('videos'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md mobile-menu-item">
+                        🎥 Vídeos
                     </button>
                 </div>
             </div>
@@ -445,13 +445,7 @@
                                     </a>
                                 </div>
 
-                                <div class="p-6 rounded-xl text-center transition-all duration-300 hover:shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
-                                    <div class="text-4xl mb-3">💰</div>
-                                    <h4 class="font-bold mb-3" style="color: var(--chrome-dark);">Tabela de Preços</h4>
-                                    <a href="./documentos/Tabela de Preços.pdf" download="Tabela de Preços.pdf" class="inline-block px-6 py-3 rounded-xl text-sm neon-button text-white">
-                                        📥 Download PDF
-                                    </a>
-                                </div>
+
                             </div>
                         </div>
 
@@ -650,15 +644,20 @@
                             <h3 class="text-lg font-semibold mb-3" style="color: var(--chrome-dark);">💡 Informações Importantes:</h3>
                             <div class="grid md:grid-cols-2 gap-4 text-sm" style="color: var(--chrome-light);">
                                 <ul class="space-y-2">
-                                    <li>• IPVA pode ser parcelado em até 5x</li>
-                                    <li>• Desconto de 3% para pagamento à vista</li>
-                                    <li>• Vencimento: Janeiro a Maio</li>
+                                    <li>• Consulta de valores e vencimento</li>
+                                    <li>• Orientação sobre pagamento</li>
+                                    <li>• Verificação de pendências</li>
                                 </ul>
                                 <ul class="space-y-2">
                                     <li>• Consulta gratuita no site do DETRAN</li>
                                     <li>• Pagamento em bancos ou lotéricas</li>
-                                    <li>• Multas por atraso</li>
+                                    <li>• Informações sobre multas</li>
                                 </ul>
+                            </div>
+                            <div class="mt-4 p-3 rounded-lg" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.1) 0%, rgba(204, 82, 0, 0.2) 100%); border: 2px solid #ff6600;">
+                                <p class="text-sm" style="color: var(--chrome-dark);">
+                                    <strong>⚠️ Importante:</strong> Para informações atualizadas sobre valores, datas de vencimento e condições de pagamento do IPVA, entre em contato conosco ou consulte diretamente o site do DETRAN-SP.
+                                </p>
                             </div>
                         </div>
 
@@ -1004,11 +1003,99 @@
             </div>
         </div>
 
-        <!-- Área do Cliente -->
+        <!-- Seção de Vídeos -->
+        <div id="videos" class="menu-content">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <div class="text-center mb-8">
+                        <h1 class="text-4xl font-bold mb-4" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🎥 Vídeos Educativos</h1>
+                        <div class="w-24 h-1 mx-auto rounded-full" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);"></div>
+                        <p class="mt-4 text-lg" style="color: var(--chrome-light);">
+                            Aprenda sobre documentação veicular, CNH e serviços do despachante
+                        </p>
+                    </div>
+
+                    <!-- Grade de Vídeos Disponíveis -->
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Vídeo 1: Licenciamento -->
+                        <div class="rounded-xl overflow-hidden shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                            <div class="relative">
+                                <video 
+                                    controls 
+                                    preload="metadata"
+                                    poster="banner.png"
+                                    class="w-full"
+                                    style="display: block;">
+                                    <source src="videos/licenciamento/licenciamentor.mp4" type="video/mp4">
+                                    <p class="text-center p-4" style="color: var(--chrome-light);">
+                                        Seu navegador não suporta reprodução de vídeo.
+                                    </p>
+                                </video>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">📋</span>
+                                    <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Licenciamento Veicular</h3>
+                                </div>
+                                <p class="text-sm mb-4" style="color: var(--chrome-light);">
+                                    Aprenda todo o processo de licenciamento do seu veículo de forma simples e clara.
+                                </p>
+                                <div class="inline-block px-3 py-1 rounded-full text-xs font-medium" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%); color: white;">
+                                    Veículos
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vídeo 2: Orientações Gerais -->
+                        <div class="rounded-xl overflow-hidden shadow-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                            <div class="relative">
+                                <video 
+                                    controls 
+                                    preload="metadata"
+                                    poster="banner.png"
+                                    class="w-full"
+                                    style="display: block;">
+                                    <source src="videos/orientacoes/orientacao.mp4" type="video/mp4">
+                                    <p class="text-center p-4" style="color: var(--chrome-light);">
+                                        Seu navegador não suporta reprodução de vídeo.
+                                    </p>
+                                </video>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">📚</span>
+                                    <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Orientações Gerais</h3>
+                                </div>
+                                <p class="text-sm mb-4" style="color: var(--chrome-light);">
+                                    Dicas importantes sobre documentação veicular, CNH e serviços do despachante.
+                                </p>
+                                <div class="inline-block px-3 py-1 rounded-full text-xs font-medium" style="background: linear-gradient(135deg, #9900ff 0%, #6600cc 100%); color: white;">
+                                    Geral
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção para vídeos futuros -->
+                    <div class="mt-8 rounded-xl p-6 text-center" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(204, 153, 0, 0.2) 100%); border: 2px solid var(--neon-yellow);">
+                        <h3 class="text-xl font-semibold mb-3" style="color: var(--chrome-dark);">📚 Mais Vídeos em Breve</h3>
+                        <p class="text-sm" style="color: var(--chrome-light);">
+                            Em breve adicionaremos mais vídeos sobre transferência, IPVA, vistoria e outros serviços.
+                        </p>
+                        <a href="https://wa.me/5511986353603?text=Olá! Gostaria de saber quando novos vídeos estiverem disponíveis." 
+                           target="_blank" 
+                           class="inline-block px-6 py-3 rounded-lg font-medium transition duration-300 neon-button text-white text-sm">
+                            💬 Receber Aviso por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Área do Cliente - Substituída por contato via WhatsApp -->
         <div id="area-cliente" class="menu-content">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Tela de Login/Cadastro -->
-                <div id="login-screen" class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
                     <div class="p-8 text-center" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);">
                         <div class="bg-white/20 p-3 rounded-lg inline-block mb-4">
                             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -1016,238 +1103,55 @@
                             </svg>
                         </div>
                         <h1 class="text-3xl font-bold mb-2 text-white">Área do Cliente</h1>
-                        <p class="text-white/80">Acesse sua área pessoal para gerenciar seus documentos</p>
+                        <p class="text-white/80">Envio de documentos e acompanhamento de atendimento</p>
                     </div>
 
                     <div class="p-8">
-                        <div class="flex justify-center mb-8">
-                            <div class="p-1 rounded-lg" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(232, 232, 232, 0.3) 100%);">
-                                <button id="login-tab" onclick="showTab('login')" class="px-6 py-2 rounded-md font-medium transition-all duration-300 neon-button text-white">
-                                    Entrar
-                                </button>
-                                <button id="register-tab" onclick="showTab('register')" class="px-6 py-2 rounded-md font-medium transition-all duration-300" style="color: var(--chrome-light);">
-                                    Cadastrar
-                                </button>
-                            </div>
+                        <div class="rounded-lg p-6 mb-6" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.1) 0%, rgba(204, 82, 0, 0.2) 100%); border: 2px solid #ff6600;">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center" style="color: var(--chrome-dark);">
+                                <span class="mr-2">🔒</span> Segurança em Primeiro Lugar
+                            </h3>
+                            <p class="mb-4" style="color: var(--chrome-light);">
+                                Para garantir a segurança dos seus dados pessoais e documentos, não aceitamos envio de documentos através de formulários públicos online.
+                            </p>
+                            <p class="mb-4" style="color: var(--chrome-light);">
+                                Documentos pessoais requerem métodos de transmissão seguros e estruturas adequadas de proteção de dados.
+                            </p>
                         </div>
 
-                        <!-- Formulário de Login -->
-                        <div id="login-form" class="tab-content">
-                            <form onsubmit="handleLogin(event)" class="space-y-6">
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Email</label>
-                                    <input type="email" id="login-email" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="seu@email.com">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Senha</label>
-                                    <input type="password" id="login-password" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="Sua senha">
-                                </div>
-                                <button type="submit" 
-                                        class="w-full py-3 px-6 rounded-lg font-semibold transition duration-300 shadow-lg neon-button text-white">
-                                    🔐 Entrar
-                                </button>
-                            </form>
+                        <div class="rounded-lg p-6 mb-6" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
+                            <h3 class="text-xl font-semibold mb-4 flex items-center" style="color: var(--chrome-dark);">
+                                <span class="mr-2">📱</span> Como Enviar Documentos
+                            </h3>
+                            <ol class="space-y-3" style="color: var(--chrome-light);">
+                                <li class="flex items-start">
+                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">1</span>
+                                    <span>Entre em contato conosco pelo WhatsApp para atendimento personalizado</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">2</span>
+                                    <span>Nossa equipe orientará você sobre a forma mais segura de enviar seus documentos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">3</span>
+                                    <span>Você poderá enviar por WhatsApp, email ou entregar pessoalmente</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0">4</span>
+                                    <span>Acompanharemos seu processo de perto através do WhatsApp</span>
+                                </li>
+                            </ol>
                         </div>
 
-                        <!-- Formulário de Cadastro -->
-                        <div id="register-form" class="tab-content hidden">
-                            <form onsubmit="handleRegister(event)" class="space-y-6">
-                                <div class="grid md:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Nome Completo</label>
-                                        <input type="text" id="register-name" required 
-                                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                               style="border-color: var(--chrome-light);"
-                                               placeholder="Seu nome completo">
-                                    </div>
-                                    <div>
-                                        <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">CPF</label>
-                                        <input type="text" id="register-cpf" required 
-                                               class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                               style="border-color: var(--chrome-light);"
-                                               placeholder="000.000.000-00" maxlength="14">
-                                    </div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Email</label>
-                                    <input type="email" id="register-email" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="seu@email.com">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Telefone</label>
-                                    <input type="tel" id="register-phone" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="(11) 99999-9999">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Senha</label>
-                                    <input type="password" id="register-password" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="Mínimo 6 caracteres" minlength="6">
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-medium mb-2" style="color: var(--chrome-dark);">Confirmar Senha</label>
-                                    <input type="password" id="register-confirm-password" required 
-                                           class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:border transition duration-300"
-                                           style="border-color: var(--chrome-light);"
-                                           placeholder="Confirme sua senha">
-                                </div>
-                                <button type="submit" 
-                                        class="w-full py-3 px-6 rounded-lg font-semibold transition duration-300 shadow-lg neon-button text-white">
-                                    ✅ Criar Conta
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Área Logada do Cliente -->
-                <div id="client-dashboard" class="hidden">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
-                        <div class="p-6" style="background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <h1 class="text-2xl font-bold text-white">Bem-vindo, <span id="client-name">Cliente</span>!</h1>
-                                    <p class="text-white/80">Gerencie seus documentos e processos</p>
-                                </div>
-                                <button onclick="logout()" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition duration-300 text-white">
-                                    🚪 Sair
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="p-6">
-                            <div class="grid md:grid-cols-2 gap-6 mb-8">
-                                <!-- Upload de Documentos -->
-                                <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
-                                    <div class="flex items-center mb-4">
-                                        <div class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%);">
-                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Enviar Documentos</h3>
-                                    </div>
-                                    <p class="mb-4" style="color: var(--chrome-light);">Envie seus documentos de forma segura</p>
-                                    
-                                    <div class="rounded-lg p-4 mb-4" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(232, 232, 232, 0.3) 100%); border: 2px solid var(--chrome-light);">
-                                        <h4 class="font-semibold mb-2" style="color: var(--chrome-dark);">📋 Como funciona:</h4>
-                                        <ol class="text-sm space-y-1" style="color: var(--chrome-light);">
-                                            <li>1. Clique para adicionar arquivos (pode repetir várias vezes)</li>
-                                            <li>2. Navegue em diferentes pastas e adicione mais arquivos</li>
-                                            <li>3. Visualize todos os arquivos selecionados</li>
-                                            <li>4. Clique em "Enviar Agora" quando estiver pronto</li>
-                                            <li>5. Confirme o envio via WhatsApp/Email</li>
-                                        </ol>
-                                    </div>
-                                    
-                                    <div class="rounded-lg p-3 mb-4" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(204, 153, 0, 0.3) 100%); border: 2px solid var(--neon-yellow);">
-                                        <p class="text-sm" style="color: var(--chrome-dark);">
-                                            <strong>⚠️ Importante:</strong> Os dados ficam salvos apenas neste dispositivo. 
-                                            Se fez cadastro em outro dispositivo, precisa se cadastrar novamente aqui.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="rounded-lg p-3 mb-4" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.2) 0%, rgba(204, 82, 0, 0.3) 100%); border: 2px solid #ff6600;">
-                                        <p class="text-sm" style="color: var(--chrome-dark);">
-                                            <strong>🔒 Aviso de Segurança:</strong><br>
-                                            Este é um sistema demonstrativo. Para envio real de documentos, entre em contato via WhatsApp para orientações seguras. Não armazenamos documentos sensíveis em nossos servidores.
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="rounded-lg p-3 mb-4" style="background: linear-gradient(135deg, rgba(255, 102, 0, 0.2) 0%, rgba(204, 82, 0, 0.3) 100%); border: 2px solid #ff6600;">
-                                        <p class="text-sm" style="color: var(--chrome-dark);">
-                                            <strong>📎 Como funciona:</strong><br>
-                                            1. Selecione os arquivos que deseja enviar<br>
-                                            2. Clique "Enviar Agora" para notificar a DESPACHANTE FALCÃO<br>
-                                            3. Um email será enviado com a lista dos seus arquivos<br>
-                                            4. A DESPACHANTE FALCÃO entrará em contato para solicitar os documentos<br>
-                                            5. Você poderá enviar por WhatsApp, email ou entregar pessoalmente
-                                        </p>
-                                    </div>
-                                    
-                                    <div class="border-2 border-dashed rounded-lg p-6 text-center" style="border-color: var(--chrome-light);">
-                                        <input type="file" id="file-upload" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" class="hidden" onchange="addFilesToQueue(event)">
-                                        <label for="file-upload" class="cursor-pointer">
-                                            <div class="text-4xl mb-2">📁</div>
-                                            <p class="font-medium" style="color: var(--neon-red);">Clique para adicionar arquivos</p>
-                                            <p class="text-sm" style="color: var(--chrome-light);">PDF, JPG, PNG, DOC (máx. 10MB cada)</p>
-                                        </label>
-                                    </div>
-                                    
-                                    <!-- Área de arquivos selecionados -->
-                                    <div id="files-queue" class="hidden mt-4">
-                                        <h4 class="font-semibold mb-3" style="color: var(--chrome-dark);">📋 Arquivos Selecionados:</h4>
-                                        <div id="files-list" class="space-y-2 mb-4 max-h-40 overflow-y-auto">
-                                            <!-- Arquivos aparecerão aqui -->
-                                        </div>
-                                        <div class="flex gap-3">
-                                            <button onclick="sendAllFiles()" class="flex-1 py-2 px-4 rounded-lg transition duration-300 font-medium neon-button text-white">
-                                                📤 Enviar Agora (<span id="files-count">0</span> arquivos)
-                                            </button>
-                                            <button onclick="clearAllFiles()" class="py-2 px-4 rounded-lg transition duration-300" style="background: linear-gradient(135deg, var(--neon-red) 0%, #cc0033 100%); color: white;">
-                                                🗑️ Limpar
-                                            </button>
-                                        </div>
-                                    </div>
-                                    
-                                    <div id="upload-progress" class="hidden mt-4">
-                                        <div class="rounded-full h-2" style="background: rgba(192, 192, 192, 0.3);">
-                                            <div id="progress-bar" class="h-2 rounded-full transition-all duration-300" style="width: 0%; background: linear-gradient(135deg, var(--neon-red) 0%, var(--neon-yellow) 100%);"></div>
-                                        </div>
-                                        <p class="text-sm mt-2" style="color: var(--chrome-light);">Enviando arquivos...</p>
-                                    </div>
-                                </div>
-
-                                <!-- Meus Documentos -->
-                                <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
-                                    <div class="flex items-center mb-4">
-                                        <div class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--neon-yellow) 0%, #cc9900 100%);">
-                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                                <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
-                                            </svg>
-                                        </div>
-                                        <h3 class="text-xl font-semibold" style="color: var(--chrome-dark);">Meus Documentos</h3>
-                                    </div>
-                                    <p class="mb-4" style="color: var(--chrome-light);">Visualize seus documentos enviados</p>
-                                    <div id="documents-list" class="space-y-2">
-                                        <p class="text-sm" style="color: var(--chrome-light);">Nenhum documento enviado ainda</p>
-                                    </div>
-                                    <button onclick="refreshDocuments()" class="mt-4 w-full py-2 px-4 rounded-lg transition duration-300 neon-button text-white">
-                                        🔄 Atualizar Lista
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Status dos Processos -->
-                            <div class="p-6 rounded-xl" style="background: linear-gradient(135deg, rgba(192, 192, 192, 0.1) 0%, rgba(232, 232, 232, 0.2) 100%); border: 2px solid var(--chrome-light);">
-                                <h3 class="text-xl font-semibold mb-4 flex items-center" style="color: var(--chrome-dark);">
-                                    <span class="p-2 rounded-lg mr-3" style="background: linear-gradient(135deg, var(--chrome-dark) 0%, #333333 100%);">
-                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
-                                        </svg>
-                                    </span>
-                                    Status dos Processos
-                                </h3>
-                                <div id="process-status" class="grid md:grid-cols-2 gap-4">
-                                    <div class="p-4 rounded-lg border" style="background: white; border-color: var(--chrome-light);">
-                                        <div class="flex items-center justify-between">
-                                            <span style="color: var(--chrome-light);">Nenhum processo em andamento</span>
-                                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-sm">-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="text-center">
+                            <a href="https://wa.me/5511986353603?text=Olá! Preciso enviar documentos e gostaria de orientação sobre a forma segura de envio." 
+                               target="_blank" 
+                               class="inline-block px-8 py-4 rounded-lg font-semibold text-lg neon-button text-white">
+                                💬 Falar com Atendente via WhatsApp
+                            </a>
+                            <p class="mt-4 text-sm" style="color: var(--chrome-light);">
+                                📞 Também podemos ser contatados por telefone: (11) 98635-3603
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1282,16 +1186,16 @@
                 <div>
                     <h3 class="font-bold text-lg mb-4 text-white">Redes Sociais</h3>
                     <div class="flex justify-center space-x-4">
-                        <span class="transition duration-300" style="color: var(--chrome-light);">
+                        <a href="https://www.facebook.com/profile.php?id=61594431771299" target="_blank" class="transition duration-300" style="color: var(--chrome-light);">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c3.204 0 3.584.012 4.85.071 1.17.06 1.83.249 2.228.435.41.196.772.463 1.144.836.372.372.64.734.836 1.144.186.398.375 1.058.435 2.228.059 1.266.071 1.646.071 4.85s-.012 3.584-.071 4.85c-.06 1.17-.249 1.83-.435 2.228-.196.41-.463.772-.836 1.144-.372.372-.734.64-1.144.836-.398.186-1.058.375-2.228.435-1.266.059-1.646.071-4.85.071s-3.584-.012-4.85-.071c-1.17-.06-1.83-.249-2.228-.435-.41-.196-.772.463-1.144.836-.372.372-.734.64-1.144.836-.398.186-1.058.375-2.228.435-1.266.059-1.646.071-4.85.071zm0-2.163c-3.259 0-3.667.014-4.947.072-1.28.06-2.132.259-2.735.497-.61.238-1.174.597-1.768 1.191-.593.594-.952 1.157-1.191 1.768-.238.603-.437 1.455-.497 2.735-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.06 1.28.259 2.132.497 2.735.238.61.597 1.174 1.191 1.768.594.593 1.157.952 1.768 1.191.603.238 1.455.437 2.735.497 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.28-.06 2.132-.259 2.735-.497.61-.238 1.174-.597 1.768-1.191.593-.594.952-1.157 1.191-1.768.238-.603.437-1.455.497-2.735.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.06-1.28-.259-2.132-.497-2.735-.238-.61-.597-1.174-1.191-1.768-.594-.593-1.157-.952-1.768-1.191-.603-.238-1.455-.437-2.735-.497-1.28-.058-1.688-.072-4.947-.072zM12 6.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666z"/>
                             </svg>
-                        </span>
-                        <span class="transition duration-300" style="color: var(--chrome-light);">
+                        </a>
+                        <a href="https://wa.me/5511986353603" target="_blank" class="transition duration-300" style="color: var(--chrome-light);">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2.163c-5.461 0-9.914 4.453-9.914 9.914 0 1.954.568 3.861 1.644 5.568L2.12 21.88l4.408-1.284c1.696.969 3.596 1.472 5.472 1.472 5.461 0 9.914-4.453 9.914-9.914S17.461 2.163 12 2.163zm3.765 11.235c-.104.283-.64.544-1.164.636-.525.093-1.049.139-1.573.064-.525-.076-1.049-.247-1.573-.418-.525-.17-1.049-.441-1.573-.712-.525-.272-1.049-.544-1.573-.815-.525-.271-1.049-.542-1.573-.813-.524-.271-1.049-.543-1.573-.815-.525-.271-.979-.571-1.432-.907-.453-.337-.87-.71-1.272-1.127-.402-.416-.763-.895-1.08-1.43-.317-.535-.588-1.107-.817-1.716-.228-.609-.387-1.258-.475-1.928-.088-.669-.076-1.343.037-2.016.113-.674.33-1.33.65-1.936.32-.607.72-1.16 1.2-1.657.48-.497 1.053-.914 1.688-1.25.636-.337 1.34-.582 2.05-.733.71-.151 1.41-.219 2.08-.219h.03c.532 0 1.063.076 1.596.227.533.15.992.368 1.38.65.388.283.693.636.915.99.222.355.362.723.42 1.077.058.353.076.697.052 1.03-.024.335-.104.665-.24.99-.136.325-.325.64-.567.933-.243.293-.532.56-1.047.854-.515.293-1.03.565-1.545.836z"/>
                             </svg>
-                        </span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1327,520 +1231,7 @@
             mobileMenu.classList.toggle('active');
         }
 
-        // Sistema de Cliente
-        let currentUser = null;
-        let clientDocuments = {};
-        let filesQueue = []; // Fila de arquivos selecionados
 
-        // Alternar entre abas de login e cadastro
-        function showTab(tab) {
-            const loginTab = document.getElementById('login-tab');
-            const registerTab = document.getElementById('register-tab');
-            const loginForm = document.getElementById('login-form');
-            const registerForm = document.getElementById('register-form');
-
-            if (tab === 'login') {
-                loginTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white';
-                registerTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600';
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-            } else {
-                registerTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 bg-blue-600 text-white';
-                loginTab.className = 'px-6 py-2 rounded-md font-medium transition-all duration-300 text-gray-600 hover:text-blue-600';
-                registerForm.classList.remove('hidden');
-                loginForm.classList.add('hidden');
-            }
-        }
-
-        // Máscara para CPF
-        document.addEventListener('DOMContentLoaded', function() {
-            const cpfInput = document.getElementById('register-cpf');
-            if (cpfInput) {
-                cpfInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                    value = value.replace(/(\d{3})(\d)/, '$1.$2');
-                    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-                    e.target.value = value;
-                });
-            }
-
-            const phoneInput = document.getElementById('register-phone');
-            if (phoneInput) {
-                phoneInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    value = value.replace(/(\d{2})(\d)/, '($1) $2');
-                    value = value.replace(/(\d{5})(\d)/, '$1-$2');
-                    e.target.value = value;
-                });
-            }
-        });
-
-        // Cadastro de cliente
-        function handleRegister(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('register-name').value;
-            const cpf = document.getElementById('register-cpf').value;
-            const email = document.getElementById('register-email').value;
-            const phone = document.getElementById('register-phone').value;
-            const password = document.getElementById('register-password').value;
-            const confirmPassword = document.getElementById('register-confirm-password').value;
-
-            if (password !== confirmPassword) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-
-            // Simular cadastro (em produção, seria enviado para servidor)
-            const userData = {
-                id: Date.now().toString(),
-                name: name,
-                cpf: cpf,
-                email: email,
-                phone: phone,
-                password: password,
-                createdAt: new Date().toISOString()
-            };
-
-            // Salvar no localStorage (simulando banco de dados)
-            let users = JSON.parse(localStorage.getItem('despachantefalcao_users') || '[]');
-            
-            // Verificar se email já existe
-            if (users.find(user => user.email === email)) {
-                alert('Este email já está cadastrado!');
-                return;
-            }
-
-            users.push(userData);
-            localStorage.setItem('despachantefalcao_users', JSON.stringify(users));
-
-            alert('Cadastro realizado com sucesso! Faça login para continuar.');
-            showTab('login');
-            
-            // Limpar formulário
-            document.getElementById('register-name').value = '';
-            document.getElementById('register-cpf').value = '';
-            document.getElementById('register-email').value = '';
-            document.getElementById('register-phone').value = '';
-            document.getElementById('register-password').value = '';
-            document.getElementById('register-confirm-password').value = '';
-        }
-
-        // Login de cliente
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-
-            // Buscar usuário no localStorage
-            const users = JSON.parse(localStorage.getItem('despachantefalcao_users') || '[]');
-            const user = users.find(u => u.email === email && u.password === password);
-
-            if (user) {
-                currentUser = user;
-                localStorage.setItem('despachantefalcao_current_user', JSON.stringify(user));
-                showClientDashboard();
-            } else {
-                // Se não encontrou, mostrar opção de cadastro rápido
-                showLoginError(email);
-            }
-        }
-
-        // Mostrar erro de login com opção de cadastro
-        function showLoginError(email) {
-            const errorModal = document.createElement('div');
-            errorModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            errorModal.innerHTML = `
-                <div class="bg-white rounded-xl p-6 max-w-md mx-4">
-                    <h3 class="text-xl font-bold text-red-600 mb-4">❌ Login não encontrado</h3>
-                    <p class="text-gray-700 mb-4">Este email não está cadastrado neste dispositivo.</p>
-                    <p class="text-sm text-gray-600 mb-6">
-                        <strong>Possíveis causas:</strong><br>
-                        • Cadastro feito em outro dispositivo<br>
-                        • Email digitado incorretamente<br>
-                        • Ainda não possui cadastro
-                    </p>
-                    
-                    <div class="space-y-3">
-                        <button onclick="quickRegister('${email}')" 
-                                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300">
-                            ✅ Fazer Cadastro Rápido
-                        </button>
-                        
-                        <button onclick="closeErrorModal()" 
-                                class="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-300">
-                            🔙 Tentar Novamente
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(errorModal);
-            
-            window.quickRegister = function(email) {
-                closeErrorModal();
-                showTab('register');
-                document.getElementById('register-email').value = email;
-                document.getElementById('register-email').focus();
-            };
-            
-            window.closeErrorModal = function() {
-                document.body.removeChild(errorModal);
-            };
-        }
-
-        // Mostrar dashboard do cliente
-        function showClientDashboard() {
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('client-dashboard').classList.remove('hidden');
-            document.getElementById('client-name').textContent = currentUser.name;
-            loadClientDocuments();
-        }
-
-        // Logout
-        function logout() {
-            currentUser = null;
-            localStorage.removeItem('despachantefalcao_current_user');
-            document.getElementById('client-dashboard').classList.add('hidden');
-            document.getElementById('login-screen').classList.remove('hidden');
-            
-            // Limpar formulários
-            document.getElementById('login-email').value = '';
-            document.getElementById('login-password').value = '';
-            showTab('login');
-        }
-
-        // Adicionar arquivos à fila (sem enviar ainda)
-        function addFilesToQueue(event) {
-            const files = event.target.files;
-            if (files.length === 0) return;
-
-            Array.from(files).forEach(file => {
-                // Verificar se arquivo já existe na fila
-                const exists = filesQueue.some(f => f.name === file.name && f.size === file.size);
-                if (!exists) {
-                    const fileData = {
-                        id: Date.now() + Math.random(),
-                        name: file.name,
-                        size: file.size,
-                        type: file.type,
-                        file: file // Manter referência do arquivo
-                    };
-                    filesQueue.push(fileData);
-                }
-            });
-
-            updateFilesDisplay();
-            event.target.value = ''; // Limpar input para permitir selecionar da mesma pasta novamente
-        }
-
-        // Atualizar exibição dos arquivos selecionados
-        function updateFilesDisplay() {
-            const filesQueueDiv = document.getElementById('files-queue');
-            const filesList = document.getElementById('files-list');
-            const filesCount = document.getElementById('files-count');
-
-            if (filesQueue.length === 0) {
-                filesQueueDiv.classList.add('hidden');
-                return;
-            }
-
-            filesQueueDiv.classList.remove('hidden');
-            filesCount.textContent = filesQueue.length;
-
-            filesList.innerHTML = filesQueue.map(file => `
-                <div class="flex items-center justify-between bg-white p-3 rounded-lg border">
-                    <div class="flex items-center">
-                        <div class="text-2xl mr-3">${getFileIcon(file.type)}</div>
-                        <div>
-                            <p class="font-medium text-gray-800">${file.name}</p>
-                            <p class="text-sm text-gray-500">${formatFileSize(file.size)}</p>
-                        </div>
-                    </div>
-                    <button onclick="removeFileFromQueue('${file.id}')" class="text-red-500 hover:text-red-700 p-1">
-                        ❌
-                    </button>
-                </div>
-            `).join('');
-        }
-
-        // Remover arquivo da fila
-        function removeFileFromQueue(fileId) {
-            filesQueue = filesQueue.filter(file => file.id != fileId);
-            updateFilesDisplay();
-        }
-
-        // Limpar todos os arquivos
-        function clearAllFiles() {
-            if (filesQueue.length === 0) return;
-            if (confirm('Tem certeza que deseja remover todos os arquivos selecionados?')) {
-                filesQueue = [];
-                updateFilesDisplay();
-            }
-        }
-
-        // Enviar todos os arquivos da fila
-        function sendAllFiles() {
-            if (filesQueue.length === 0) {
-                alert('Nenhum arquivo selecionado!');
-                return;
-            }
-
-            const progressDiv = document.getElementById('upload-progress');
-            const progressBar = document.getElementById('progress-bar');
-            
-            progressDiv.classList.remove('hidden');
-            
-            // Simular upload com progresso
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 10;
-                progressBar.style.width = progress + '%';
-                
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    
-                    // Salvar arquivos no "banco de dados" do cliente
-                    const clientId = currentUser.id;
-                    let allDocuments = JSON.parse(localStorage.getItem('despachantefalcao_documents') || '{}');
-                    
-                    if (!allDocuments[clientId]) {
-                        allDocuments[clientId] = [];
-                    }
-                    
-                    const uploadedFiles = [];
-                    filesQueue.forEach(file => {
-                        const document = {
-                            id: Date.now() + Math.random(),
-                            name: file.name,
-                            size: file.size,
-                            type: file.type,
-                            uploadDate: new Date().toISOString()
-                        };
-                        allDocuments[clientId].push(document);
-                        uploadedFiles.push(document);
-                    });
-                    
-                    localStorage.setItem('despachantefalcao_documents', JSON.stringify(allDocuments));
-                    
-                    // Enviar automaticamente por email
-                    sendEmailWithFiles(uploadedFiles);
-                    
-                    setTimeout(() => {
-                        progressDiv.classList.add('hidden');
-                        progressBar.style.width = '0%';
-                        alert('Arquivos enviados com sucesso! Você receberá uma confirmação em breve.');
-                        
-                        // Limpar fila após envio
-                        filesQueue = [];
-                        updateFilesDisplay();
-                        
-                        loadClientDocuments();
-                    }, 500);
-                }
-            }, 200);
-        }
-
-        // Obter ícone do arquivo baseado no tipo
-        function getFileIcon(fileType) {
-            if (fileType.includes('pdf')) return '📄';
-            if (fileType.includes('image')) return '🖼️';
-            if (fileType.includes('word') || fileType.includes('document')) return '📝';
-            return '📁';
-        }
-
-        // Enviar email com arquivos automaticamente
-        function sendEmailWithFiles(uploadedFiles) {
-            const now = new Date();
-            const dateTime = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
-            
-            // Lista de arquivos enviados
-            const filesList = uploadedFiles.map(file => 
-                `• ${file.name} (${formatFileSize(file.size)})`
-            ).join('\n');
-            
-            const emailSubject = `NOVO UPLOAD - ${currentUser.name}`;
-            const emailBody = `🚨 NOVO UPLOAD DE DOCUMENTOS
-
-👤 CLIENTE: ${currentUser.name}
-📧 Email: ${currentUser.email}
-📱 Telefone: ${currentUser.phone}
-🆔 CPF: ${currentUser.cpf}
-📅 Data/Hora: ${dateTime}
-
-📁 ARQUIVOS PARA SOLICITAR:
-${filesList}
-
-📊 Total de arquivos: ${uploadedFiles.length}
-
-⚠️ PRÓXIMOS PASSOS:
-1. Entre em contato com o cliente
-2. Solicite o envio dos arquivos listados acima
-3. Cliente pode enviar por WhatsApp, email ou entregar pessoalmente
-
-💡 IMPORTANTE: Os arquivos não vêm anexados automaticamente por limitações de segurança dos navegadores. Use esta lista para saber exatamente quais documentos solicitar.
-
----
-Mensagem automática do sistema DESPACHANTE FALCÃO`;
-
-            // Tentar abrir cliente de email com múltiplos métodos
-            const mailtoUrl = `mailto:paulistadocs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            try {
-                // Método 1: Tentar window.location.href
-                window.location.href = mailtoUrl;
-                
-                // Método 2: Fallback com window.open
-                setTimeout(() => {
-                    const emailWindow = window.open(mailtoUrl, '_self');
-                    if (!emailWindow) {
-                        // Método 3: Criar link temporário e clicar
-                        const tempLink = document.createElement('a');
-                        tempLink.href = mailtoUrl;
-                        tempLink.style.display = 'none';
-                        document.body.appendChild(tempLink);
-                        tempLink.click();
-                        document.body.removeChild(tempLink);
-                    }
-                }, 500);
-                
-            } catch (error) {
-                console.error('Erro ao abrir email:', error);
-            }
-            
-            // Mostrar confirmação sempre
-            setTimeout(() => {
-                showEmailConfirmation(uploadedFiles);
-            }, 1500);
-        }
-
-        // Mostrar confirmação de email enviado
-        function showEmailConfirmation(uploadedFiles) {
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            modal.innerHTML = `
-                <div class="bg-white rounded-xl p-6 max-w-md mx-4">
-                    <h3 class="text-xl font-bold text-green-600 mb-4">📧 Notificação Enviada!</h3>
-                    <p class="text-gray-700 mb-4">
-                        Seus documentos foram registrados! Se o email não abriu automaticamente, 
-                        copie a mensagem abaixo e envie para <strong>paulistadocs@gmail.com</strong>
-                    </p>
-                    <p class="text-sm text-gray-600 mb-6">
-                        <strong>Próximos passos:</strong><br>
-                        • A PAULISTADOCS entrará em contato em breve<br>
-                        • Tenha os arquivos prontos para envio<br>
-                        • Aguarde instruções por email ou telefone
-                    </p>
-                    
-                    <div class="space-y-3">
-                        <button onclick="copyEmailMessage()" 
-                                class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-                            📋 Copiar Mensagem para Email
-                        </button>
-                        
-                        <button onclick="sendWhatsAppBackup()" 
-                                class="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 transition duration-300">
-                            📱 Enviar por WhatsApp
-                        </button>
-                        
-                        <button onclick="closeEmailModal()" 
-                                class="w-full bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400 transition duration-300">
-                            ✅ Entendi
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Salvar dados para backup WhatsApp
-            window.currentUploadedFiles = uploadedFiles;
-            window.currentEmailMessage = `Assunto: NOVO UPLOAD - ${currentUser.name}
-
-${emailBody}`;
-            
-            window.copyEmailMessage = function() {
-                navigator.clipboard.writeText(window.currentEmailMessage).then(() => {
-                    alert('Mensagem copiada! Cole no seu email e envie para paulistadocs@gmail.com');
-                }).catch(() => {
-                    // Fallback para navegadores antigos
-                    const textArea = document.createElement('textarea');
-                    textArea.value = window.currentEmailMessage;
-                    document.body.appendChild(textArea);
-                    textArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textArea);
-                    alert('Mensagem copiada! Cole no seu email e envie para paulistadocs@gmail.com');
-                });
-            };
-            
-            window.sendWhatsAppBackup = function() {
-                closeEmailModal();
-                sendWhatsAppNotification(window.currentUploadedFiles);
-            };
-            
-            window.closeEmailModal = function() {
-                document.body.removeChild(modal);
-            };
-        }
-
-        // Enviar notificação WhatsApp (como backup)
-        function sendWhatsAppNotification(uploadedFiles) {
-            const now = new Date();
-            const dateTime = now.toLocaleDateString('pt-BR') + ' às ' + now.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
-            
-            // Lista de arquivos enviados
-            const filesList = uploadedFiles.map(file => 
-                `• ${file.name} (${formatFileSize(file.size)})`
-            ).join('\n');
-            
-            // Mensagem completa com dados do cliente
-            const message = `🚨 *NOVO UPLOAD DE DOCUMENTOS* 🚨
-
-👤 *CLIENTE:* ${currentUser.name}
-📧 *Email:* ${currentUser.email}
-📱 *Telefone:* ${currentUser.phone}
-🆔 *CPF:* ${currentUser.cpf}
-📅 *Data/Hora:* ${dateTime}
-
-📁 *ARQUIVOS ENVIADOS:*
-${filesList}
-
-📊 *Total de arquivos:* ${uploadedFiles.length}
-
-⚠️ *AÇÃO NECESSÁRIA:*
-O cliente selecionou documentos através da área do cliente. 
-
-📎 *PRÓXIMOS PASSOS:*
-1. Confirme o recebimento desta mensagem
-2. Solicite que o cliente envie os arquivos listados acima
-3. Oriente sobre como anexar no WhatsApp (clipe 📎)
-
-💡 *DICA:* Os arquivos não vêm automaticamente por limitações do WhatsApp. O cliente precisa anexá-los manualmente após enviar esta mensagem.
-
----
-*Mensagem automática do sistema PAULISTADOCS*`;
-
-            // Detectar se é mobile ou desktop
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                // Mobile: Abrir WhatsApp diretamente
-                const whatsappUrl = `https://wa.me/5511986353603?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            } else {
-                // Desktop: Mostrar modal com opções
-                showWhatsAppModal(message);
-            }
-        }
-
-        // Modal para desktop com opções de contato
-        function showWhatsAppModal(message) {
-            const modal = document.createElement('div');
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
-            modal.innerHTML = `
-                <div class="bg-white rounded-xl p-6 max-w-md mx-4">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">📱 Confirmar Envio</h3>
-                    <p class="text-gray-600 mb
+    </script>
+</body>
+</html>
