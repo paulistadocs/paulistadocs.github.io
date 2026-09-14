@@ -1212,4 +1212,41 @@
                 </div>
             </div>
             <div class="mt-8 pt-8 text-center" style="border-top: 1px solid var(--chrome-light);">
-                <p style="color: var(--chrome-light);"> 2026 DESPACHANTE FALCÃO. Tod
+                <p style="color: var(--chrome-light);"> 2026 DESPACHANTE FALCÃO. Todos os direitos reservados.</p>
+                <p class="text-xs mt-2" style="color: var(--chrome-light);">
+                    🔒 Este site coleta apenas dados essenciais para contato. Não armazenamos documentos sensíveis em nossos servidores.
+                </p>
+                <p class="text-xs mt-3 font-semibold" style="color: var(--neon-red);">
+                    ⚠️ O Despachante Falcão é uma empresa privada e não possui afiliação direta com órgãos governamentais ou o Detran. Nossos serviços são de assessoria e intermediação documental.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showMenu(menuId) {
+            // Hide all menu contents
+            const allContents = document.querySelectorAll('.menu-content');
+            allContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show selected menu content
+            const selectedContent = document.getElementById(menuId);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+
+    </script>
+</body>
+</html>
